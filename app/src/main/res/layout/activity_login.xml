@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="24dp"
+    tools:context=".activity.RegisterActivity">
+
+    <LinearLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:scaleType="fitXY"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_launcher_background"/>
+
+            <TextView
+                android:gravity="end"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="V 0.1.17"
+                android:id="@+id/textVersion"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textSize="24sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/textSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Halo JupaFazz Agent, Selamat datang kembali!"
+            android:textSize="16sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/phone_number_short"
+            app:prefixText="+62"
+            app:prefixTextColor="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="13"
+                android:id="@+id/inputPhoneNumber"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:id="@+id/buttonLogin"
+            app:cornerRadius="8dp"
+            app:backgroundTint="@color/dark_blue"/>
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="Dengan masuk, anda menyetujui ketentuan layanan dan kebijakan privasi"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textRegisterTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Belum Punya Akun?"/>
+
+        <TextView
+            android:textColor="@color/blue"
+            android:layout_marginStart="8dp"
+            android:id="@+id/textRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daftar Disini"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
