@@ -12,4 +12,15 @@
     <string name="phone_number_short">Nomor HP</string>
     <string name="login">Masuk</string>
     <string name="remember_me">Ingat Saya</string>
+    <string name="home">Beranda</string>
+    <string name="history">Riwayat</string>
+    <string name="create_transaction">Buat Transaksi</string>
+    <string name="notification">Notifikasi</string>
+    <string name="account">Akun</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="your_balance">Saldo Anda</string>
+    <string name="top_up">Isi Saldo</string>
+    <string name="send_money">Kirim</string>
+    <string name="scan">Pindai</string>
 </resources>

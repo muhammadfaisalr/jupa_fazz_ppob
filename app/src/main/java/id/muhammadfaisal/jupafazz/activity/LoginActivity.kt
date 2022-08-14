@@ -2,11 +2,14 @@ package id.muhammadfaisal.jupafazz.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import id.muhammadfaisal.jupafazz.R
 import id.muhammadfaisal.jupafazz.databinding.ActivityLoginBinding
+import id.muhammadfaisal.jupafazz.helper.GeneralHelper
+import id.muhammadfaisal.jupafazz.helper.ViewHelper
 import id.muhammadfaisal.jupafazz.utils.Font
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityLoginBinding
 
@@ -25,6 +28,14 @@ class LoginActivity : AppCompatActivity() {
                 setInto(this@LoginActivity, Font.Rubik.REGULAR, it.textSubtitle, it.textRegisterTitle)
                 setInto(this@LoginActivity, Font.Rubik.MEDIUM, it.buttonLogin, it.textRegister, it.textVersion)
             }
+
+            ViewHelper.makeClickable(this, it.buttonLogin)
+        }
+    }
+
+    override fun onClick(p0: View?) {
+        if (p0 == this.binding.buttonLogin) {
+            GeneralHelper.move(this, MainActivity::class.java, true)
         }
     }
 }
