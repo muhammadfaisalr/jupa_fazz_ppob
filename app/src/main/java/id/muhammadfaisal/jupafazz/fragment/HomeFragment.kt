@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import com.smarteist.autoimageslider.SliderViewAdapter
 import id.muhammadfaisal.jupafazz.R
 import id.muhammadfaisal.jupafazz.databinding.FragmentHomeBinding
 import id.muhammadfaisal.jupafazz.utils.Font

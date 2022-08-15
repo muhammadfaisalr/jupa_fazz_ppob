@@ -6,192 +6,238 @@
     android:layout_height="match_parent"
     tools:context=".fragment.HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/layoutHeader"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_gradient_blue"
-            android:orientation="vertical"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="24dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textTitle"
+            <LinearLayout
+                android:id="@+id/layoutHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textColor="@color/grey"
-                android:textSize="22sp" />
+                android:background="@drawable/bg_gradient_blue"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="24dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/textGreeting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="8dp"
-                android:text="Hi, Muhammad Faisal"
-                android:textColor="@color/grey"
-                android:textSize="14sp" />
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="4dp"
-                android:layout_marginTop="8dp"
-                app:cardCornerRadius="8dp">
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/textTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="8dp"
-                    android:paddingVertical="12dp">
+                    android:text="@string/app_name"
+                    android:textColor="@color/grey"
+                    android:textSize="22sp" />
 
-                    <RelativeLayout
+                <TextView
+                    android:id="@+id/textGreeting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Hi, Muhammad Faisal"
+                    android:textColor="@color/grey"
+                    android:textSize="14sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginTop="8dp"
+                    app:cardCornerRadius="8dp">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="12dp">
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_centerInParent="true"
-                            android:layout_toStartOf="@id/layoutMenu"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/textTitleBalance"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/your_balance"
-                                android:textColor="@color/black"
-                                android:textSize="12sp" />
-
-                            <TextView
-                                android:id="@+id/textBalance"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="Rp24.000"
-                                android:textColor="@color/black"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/layoutMenu"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerInParent="true"
-                            android:orientation="horizontal">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
                             <LinearLayout
-                                android:id="@+id/layoutTopUp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginHorizontal="12dp"
-                                android:gravity="center"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerInParent="true"
+                                android:layout_toStartOf="@id/layoutMenu"
                                 android:orientation="vertical">
 
-                                <ImageView
-                                    android:layout_width="32dp"
-                                    android:layout_height="32dp"
-                                    android:src="@drawable/ic_add" />
-
                                 <TextView
-                                    android:id="@+id/textTopUp"
+                                    android:id="@+id/textTitleBalance"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="6dp"
-                                    android:text="@string/top_up" />
+                                    android:text="@string/your_balance"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/textBalance"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:text="Rp24.000"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp" />
 
                             </LinearLayout>
 
                             <LinearLayout
-                                android:id="@+id/layoutSend"
+                                android:id="@+id/layoutMenu"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginHorizontal="12dp"
-                                android:gravity="center"
-                                android:orientation="vertical">
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerInParent="true"
+                                android:orientation="horizontal">
 
-                                <ImageView
-                                    android:layout_width="32dp"
-                                    android:layout_height="32dp"
-                                    android:src="@drawable/ic_send" />
-
-                                <TextView
-                                    android:id="@+id/textSend"
+                                <LinearLayout
+                                    android:id="@+id/layoutTopUp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="6dp"
-                                    android:text="@string/send_money" />
+                                    android:layout_marginHorizontal="12dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:src="@drawable/ic_add" />
+
+                                    <TextView
+                                        android:id="@+id/textTopUp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="6dp"
+                                        android:text="@string/top_up" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/layoutSend"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="12dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:src="@drawable/ic_send" />
+
+                                    <TextView
+                                        android:id="@+id/textSend"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="6dp"
+                                        android:text="@string/send_money" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/layoutScan"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="12dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="39dp"
+                                        android:layout_height="32dp"
+                                        android:src="@drawable/ic_scan" />
+
+                                    <TextView
+                                        android:id="@+id/textScan"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="6dp"
+                                        android:text="@string/scan" />
+
+                                </LinearLayout>
 
                             </LinearLayout>
 
-                            <LinearLayout
-                                android:id="@+id/layoutScan"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="12dp"
-                                android:layout_marginEnd="8dp"
-                                android:gravity="center"
-                                android:orientation="vertical">
+                        </RelativeLayout>
 
-                                <ImageView
-                                    android:layout_width="39dp"
-                                    android:layout_height="32dp"
-                                    android:src="@drawable/ic_scan" />
+                    </LinearLayout>
 
-                                <TextView
-                                    android:id="@+id/textScan"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="6dp"
-                                    android:text="@string/scan" />
+                </androidx.cardview.widget.CardView>
 
-                            </LinearLayout>
+            </LinearLayout>
 
-                        </LinearLayout>
+            <TextView
+                android:id="@+id/textNews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/yellow"
+                android:drawableStart="@drawable/ic_round_warning_amber_24"
+                android:drawablePadding="12dp"
+                android:drawableTint="@color/dark_blue"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:gravity="center|start"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="12dp"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:text="Bila ada sesuatu yang mencurigakan, harap perhatikan bahwa customer service kami hanya di nomor 0812-3456-7811"
+                android:textColor="@color/dark_blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layoutHeader" />
 
-                    </RelativeLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardPromo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginVertical="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textNews">
 
-                </LinearLayout>
+                <com.smarteist.autoimageslider.SliderView
+                    android:id="@+id/imageSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:sliderAnimationDuration="500"
+                    app:sliderAutoCycleEnabled="true"
+                    app:sliderIndicatorGravity="bottom|center_horizontal"
+                    app:sliderIndicatorOrientation="horizontal"
+                    app:sliderIndicatorSelectedColor="@color/yellow"
+                    app:sliderIndicatorUnselectedColor="@color/grey" />
 
             </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/textTitleChoicesMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="@string/choices_menu"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardPromo" />
 
-        <TextView
-            android:scrollHorizontally="true"
-            android:id="@+id/textNews"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/yellow"
-            android:drawableStart="@drawable/ic_round_warning_amber_24"
-            android:drawablePadding="12dp"
-            android:drawableTint="@color/dark_blue"
-            android:gravity="center|start"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="12dp"
-            android:text="Bila ada sesuatu yang mencurigakan, harap perhatikan bahwa customer service kami hanya di nomor 0812-3456-7811"
-            android:singleLine="true"
-            android:ellipsize="marquee"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:fadingEdge="horizontal"
-            android:textColor="@color/dark_blue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layoutHeader" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/textTitleChoicesMenu" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -23,4 +23,5 @@
     <string name="top_up">Isi Saldo</string>
     <string name="send_money">Kirim</string>
     <string name="scan">Pindai</string>
+    <string name="choices_menu">Menu Pilihan</string>
 </resources>
