@@ -8,10 +8,22 @@
     <color name="black">#121212</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- Color On Use   -->
+    <!-- Color On Use -->
     <color name="dark_blue">#000957</color>
     <color name="blue">#344CB7</color>
-    <color name="light_blue">#577BC1</color>
+    <color name="light_blue">#B0C2E6</color>
     <color name="yellow">#F2DF3A</color>
     <color name="grey">#F6F6F6</color>
+
+    <color name="error_bg">#F8BBD0</color>
+    <color name="error_text">#F44336</color>
+
+    <color name="waiting_bg">#FFF9C4</color>
+    <color name="waiting_text">#FFC107</color>
+
+    <color name="on_process_bg">#FFECB3</color>
+    <color name="on_process_text">#FF9800</color>
+
+    <color name="cancel_bg">#E6E6E6</color>
+    <color name="cancel_text">#515151</color>
 </resources>

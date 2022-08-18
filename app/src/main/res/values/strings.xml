@@ -24,4 +24,8 @@
     <string name="send_money">Kirim</string>
     <string name="scan">Pindai</string>
     <string name="choices_menu">Menu Pilihan</string>
+    <string name="add_menu">Tambah Menu</string>
+    <string name="history_transaction">Riwayat Transaksi</string>
+    <string name="sort">Sortir</string>
+    <string name="filter">Filter</string>
 </resources>
