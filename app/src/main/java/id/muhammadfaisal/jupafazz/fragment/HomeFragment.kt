@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
+import com.denzcoskun.imageslider.constants.ScaleTypes
 import id.muhammadfaisal.jupafazz.adapter.MenuAdapter
 import id.muhammadfaisal.jupafazz.databinding.FragmentHomeBinding
 import id.muhammadfaisal.jupafazz.dummy.Dummy

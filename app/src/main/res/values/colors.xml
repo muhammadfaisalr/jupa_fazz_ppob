@@ -9,8 +9,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <!-- Color On Use -->
-    <color name="dark_blue">#000957</color>
-    <color name="blue">#344CB7</color>
+    <color name="dark_blue">#064F88</color>
+    <color name="blue">#2196f3</color>
     <color name="light_blue">#B0C2E6</color>
     <color name="yellow">#F2DF3A</color>
     <color name="grey">#F6F6F6</color>

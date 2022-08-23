@@ -28,4 +28,12 @@
     <string name="history_transaction">Riwayat Transaksi</string>
     <string name="sort">Sortir</string>
     <string name="filter">Filter</string>
+    <string name="password">Kata Sandi</string>
+    <string name="name">Nama</string>
+    <string name="confirm_password">Konfirmasi Kata Sandi</string>
+    <string name="not_have_account">Belum Punya Akun?</string>
+    <string name="already_account">Sudah Memiliki Akun?</string>
+    <string name="register_here">Daftar Disini</string>
+    <string name="login_here">Masuk Disini</string>
+    <string name="register">Daftar</string>
 </resources>

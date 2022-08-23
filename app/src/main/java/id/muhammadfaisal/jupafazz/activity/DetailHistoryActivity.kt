@@ -2,22 +2,21 @@ package id.muhammadfaisal.jupafazz.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import id.muhammadfaisal.jupafazz.R
-import id.muhammadfaisal.jupafazz.databinding.ActivityRegisterBinding
+import id.muhammadfaisal.jupafazz.databinding.ActivityDetailHistoryBinding
 
-class RegisterActivity : AppCompatActivity() {
+class DetailHistoryActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityRegisterBinding
+    private lateinit var binding: ActivityDetailHistoryBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.binding = ActivityRegisterBinding.inflate(this.layoutInflater)
+        this.binding = ActivityDetailHistoryBinding.inflate(this.layoutInflater)
         this.setContentView(this.binding.root)
 
         this.initialize()
     }
 
     private fun initialize() {
-
+        
     }
 }
