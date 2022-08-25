@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationBarView
 import id.muhammadfaisal.jupafazz.R
 import id.muhammadfaisal.jupafazz.databinding.ActivityMainBinding
+import id.muhammadfaisal.jupafazz.fragment.AccountFragment
 import id.muhammadfaisal.jupafazz.fragment.HistoryFragment
 import id.muhammadfaisal.jupafazz.fragment.HomeFragment
 import id.muhammadfaisal.jupafazz.helper.GeneralHelper
@@ -49,6 +50,8 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
             this.inflate(HistoryFragment())
         } else if (item.title.equals(getString(R.string.home))) {
             this.inflate(HomeFragment())
+        } else if (item.title.equals(getString(R.string.account))) {
+            this.inflate(AccountFragment())
         }
 
         item.isChecked = true

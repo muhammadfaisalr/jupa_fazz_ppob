@@ -36,4 +36,8 @@
     <string name="register_here">Daftar Disini</string>
     <string name="login_here">Masuk Disini</string>
     <string name="register">Daftar</string>
+    <string name="account_information">Informasi Akun</string>
+    <string name="account_setting">Pengaturan Akun</string>
+    <string name="change_password">Ubah Password</string>
+    <string name="other_menu">Menu Lainnya</string>
 </resources>

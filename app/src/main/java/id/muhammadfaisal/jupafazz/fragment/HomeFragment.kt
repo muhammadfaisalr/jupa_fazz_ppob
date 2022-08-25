@@ -61,7 +61,6 @@ class HomeFragment : Fragment() {
                     it.textGreeting,
                     it.textBalance,
                     it.textTitleChoicesMenu,
-                    it.textAddMenu
                 )
 
                 //Set Into Regular Rubik Font
