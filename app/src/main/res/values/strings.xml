@@ -40,4 +40,5 @@
     <string name="account_setting">Pengaturan Akun</string>
     <string name="change_password">Ubah Password</string>
     <string name="other_menu">Menu Lainnya</string>
+    <string name="loading">Mohon Tunggu</string>
 </resources>

@@ -29,13 +29,15 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 setInto(this@LoginActivity, Font.Rubik.MEDIUM, it.buttonLogin, it.textRegister, it.textVersion)
             }
 
-            ViewHelper.makeClickable(this, it.buttonLogin)
+            ViewHelper.makeClickable(this, it.buttonLogin, it.textRegister)
         }
     }
 
     override fun onClick(p0: View?) {
         if (p0 == this.binding.buttonLogin) {
             GeneralHelper.move(this, MainActivity::class.java, true)
+        } else if (p0 == this.binding.textRegister) {
+            GeneralHelper.move(this, RegisterActivity::class.java, false)
         }
     }
 }

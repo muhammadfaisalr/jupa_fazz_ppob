@@ -16,4 +16,11 @@ class Constant {
             const val CANCEL = "Dibatalkan"
         }
     }
+
+    class URL {
+        companion object {
+            const val BASE = "http://api.jupafazz.jupagroup.com/"
+            const val REGISTER = "request/auth/api/register"
+        }
+    }
 }
