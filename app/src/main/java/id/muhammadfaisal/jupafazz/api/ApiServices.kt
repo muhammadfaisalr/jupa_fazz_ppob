@@ -16,4 +16,30 @@ interface ApiServices {
         @Field("password") password: String,
         @Field("confirm_password") confirmPassword: String,
     ): Observable<Response<BaseResponse>>
+
+    @FormUrlEncoded
+    @POST(Constant.URL.RESEND_OTP)
+    fun resendOtp(
+        @Field("wa") wa: String
+    ) : Observable<Response<BaseResponse>>
+
+    @FormUrlEncoded
+    @POST(Constant.URL.LOGIN)
+    fun login(
+        @Field("wa") wa: String,
+        @Field("password") password: String
+    ) : Observable<Response<BaseResponse>>
+
+    @FormUrlEncoded
+    @POST(Constant.URL.VERIFICATION_OTP)
+    fun otpVerification(
+        @Field("wa") wa: String,
+        @Field("otp") otp: String
+    ) : Observable<Response<BaseResponse>>
+
+    @FormUrlEncoded
+    @POST(Constant.URL.START_SESSION)
+    fun startSession(
+        @Field("session") session: String,
+    ) : Observable<Response<BaseResponse>>
 }

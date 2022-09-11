@@ -41,4 +41,13 @@
     <string name="change_password">Ubah Password</string>
     <string name="other_menu">Menu Lainnya</string>
     <string name="loading">Mohon Tunggu</string>
+    <string name="verification">Verifikasi</string>
+    <string name="please_wait">Mohon Tunggu</string>
+    <string name="desc_start_session">Kami sedang memeriksa akun dan perangkat anda sebelum mengakses halaman utama, proses ini akan memakan waktu hingga 1 menit.</string>
+    <string name="paid_title">Bukti Pembayaran</string>
+    <string name="share_receipt">Bagikan Bukti Pembayaran</string>
+    <string name="total_paid">Total Bayar</string>
+    <string name="payment_method">Metode Pembayaran</string>
+    <string name="not_receive_code">Tidak Menerima Kode?</string>
+    <string name="resend">Kirim Ulang</string>
 </resources>

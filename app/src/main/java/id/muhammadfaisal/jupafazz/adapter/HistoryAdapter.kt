@@ -9,8 +9,11 @@ import androidx.annotation.ColorInt
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import id.muhammadfaisal.jupafazz.R
+import id.muhammadfaisal.jupafazz.activity.DetailHistoryActivity
 import id.muhammadfaisal.jupafazz.databinding.ItemHistoryBodyBinding
 import id.muhammadfaisal.jupafazz.dummy.History
+import id.muhammadfaisal.jupafazz.helper.GeneralHelper
+import id.muhammadfaisal.jupafazz.helper.ViewHelper
 import id.muhammadfaisal.jupafazz.utils.Constant
 import id.muhammadfaisal.jupafazz.utils.Font
 import id.muhammadfaisal.jupafazz.utils.Formatter
@@ -28,11 +31,14 @@ class HistoryAdapter(val context: Context, val histories: ArrayList<History>) : 
         return histories.size
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
         private var binding = ItemHistoryBodyBinding.bind(itemView)
+        private lateinit var context: Context
 
         fun bind(context: Context, history: History) {
+            this.context = context
+
             this.statusFormat(context, history)
             this.binding.let {
                 it.textProductName.text = history.name
@@ -44,6 +50,8 @@ class HistoryAdapter(val context: Context, val histories: ArrayList<History>) : 
                     setInto((context as AppCompatActivity), Font.Rubik.MEDIUM, it.textStatus, it.textPrice, it.textProductName)
                     setInto((context as AppCompatActivity), Font.Rubik.REGULAR, it.textValue)
                 }
+
+                ViewHelper.makeClickable(this, this.itemView)
             }
         }
 
@@ -67,6 +75,12 @@ class HistoryAdapter(val context: Context, val histories: ArrayList<History>) : 
             this.binding.let {
                 it.cardStatus.setCardBackgroundColor(context.resources.getColor(bgColor))
                 it.textStatus.setTextColor(context.resources.getColor(textColor))
+            }
+        }
+
+        override fun onClick(p0: View?) {
+            if (p0 == this.itemView) {
+                GeneralHelper.move(context, DetailHistoryActivity::class.java, false)
             }
         }
     }

@@ -24,9 +24,9 @@
 
             <ImageView
                 android:scaleType="fitXY"
-                android:layout_width="wrap_content"
+                android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:src="@drawable/ic_launcher_background"/>
+                android:src="@drawable/logo_square"/>
 
             <TextView
                 android:gravity="end"
@@ -99,11 +99,12 @@
             app:backgroundTint="@color/dark_blue"/>
 
         <TextView
+            android:layout_marginTop="8dp"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12sp"
-            android:text="Dengan masuk, anda menyetujui ketentuan layanan dan kebijakan privasi"/>
+            android:text="Dengan masuk, anda menyetujui\nketentuan layanan dan kebijakan privasi"/>
 
     </LinearLayout>
 

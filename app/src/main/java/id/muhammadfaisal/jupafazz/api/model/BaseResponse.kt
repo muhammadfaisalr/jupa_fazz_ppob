@@ -6,5 +6,7 @@ open class BaseResponse(
     @SerializedName("success")
     val isSuccess: Boolean,
     @SerializedName("message")
-    val message: String
+    val message: String,
+    @SerializedName("data")
+    val data: Any
 ) {}

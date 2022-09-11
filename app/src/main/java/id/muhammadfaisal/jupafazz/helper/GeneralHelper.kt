@@ -49,5 +49,22 @@ class GeneralHelper {
 
             return isMatch
         }
+
+        fun getInputValue(input: EditText) : String {
+            return input.text.toString()
+        }
+
+        fun getInputValues(vararg inputs: EditText) : HashMap<Int, String> {
+            val map = HashMap<Int, String>()
+
+            var index = 0
+            for (input in inputs) {
+                if (input.text.isNotEmpty()) {
+                    map[index] = input.text.toString()
+                    index++
+                }
+            }
+            return map
+        }
     }
 }

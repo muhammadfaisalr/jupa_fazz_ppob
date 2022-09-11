@@ -2,12 +2,23 @@ package id.muhammadfaisal.jupafazz.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import id.muhammadfaisal.jupafazz.R
+import id.muhammadfaisal.jupafazz.api.model.BaseResponse
+import id.muhammadfaisal.jupafazz.api.model.login.LoginRequest
 import id.muhammadfaisal.jupafazz.databinding.ActivityLoginBinding
+import id.muhammadfaisal.jupafazz.helper.ApiHelper
 import id.muhammadfaisal.jupafazz.helper.GeneralHelper
 import id.muhammadfaisal.jupafazz.helper.ViewHelper
+import id.muhammadfaisal.jupafazz.ui.Loading
+import id.muhammadfaisal.jupafazz.utils.Constant
 import id.muhammadfaisal.jupafazz.utils.Font
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.observers.DisposableObserver
+import org.apache.commons.lang3.StringUtils
+import retrofit2.Response
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -35,9 +46,67 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         if (p0 == this.binding.buttonLogin) {
-            GeneralHelper.move(this, MainActivity::class.java, true)
+            this.login()
         } else if (p0 == this.binding.textRegister) {
             GeneralHelper.move(this, RegisterActivity::class.java, false)
         }
+    }
+
+    private fun login() {
+        val loading = Loading(this)
+        loading.setCancelable(false)
+        loading.show()
+
+        val isEmpty = GeneralHelper.isInputEmpty(this.binding.inputPassword, this.binding.inputPhoneNumber)
+
+        if (isEmpty) {
+            Toast.makeText(this, "Pastikan semua data sudah terisi", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val values = GeneralHelper.getInputValues(this.binding.inputPhoneNumber, this.binding.inputPassword)
+
+        //Get value by index when input to param
+        val phone = "62" + values[0]
+        val password = values[1]!!
+
+        val loginRequest = LoginRequest(phone, password)
+        var isSuccess = false
+
+        var session = ""
+        CompositeDisposable().add(
+            ApiHelper
+                .login(loginRequest)
+                .subscribeWith(object : DisposableObserver<Response<BaseResponse>>() {
+                    override fun onNext(t: Response<BaseResponse>) {
+                        if (t.body() != null) {
+                            val body = t.body()!!
+                            if (body.isSuccess) {
+                                isSuccess = true
+                                val data = body.data as Map<*, *>
+                                session = data["session"].toString()
+                            } else {
+                                loading.dismiss()
+                                Toast.makeText(this@LoginActivity, body.message, Toast.LENGTH_SHORT)
+                                    .show()
+                            }
+                        }
+                    }
+
+                    override fun onError(e: Throwable) {
+                        Toast.makeText(this@LoginActivity, e.message, Toast.LENGTH_SHORT).show()
+                    }
+
+                    override fun onComplete() {
+                        loading.dismiss()
+
+                        if (isSuccess || session.isNotEmpty()) {
+                            val bundle = Bundle()
+                            bundle.putString(Constant.Key.SESSION, session)
+                            GeneralHelper.move(this@LoginActivity, StartSessionActivity::class.java, bundle, true)
+                        }
+                    }
+                })
+        )
     }
 }

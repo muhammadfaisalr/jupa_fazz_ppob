@@ -4,6 +4,8 @@ class Constant {
     class Key {
         companion object {
             const val BUNDLING = "BUNDLING"
+            const val WHATSAPP = "WHATSAPP"
+            const val SESSION = "SESSION"
         }
     }
 
@@ -21,6 +23,10 @@ class Constant {
         companion object {
             const val BASE = "http://api.jupafazz.jupagroup.com/"
             const val REGISTER = "request/auth/api/register"
+            const val RESEND_OTP = "request/auth/api/resend-otp"
+            const val VERIFICATION_OTP = "request/auth/api/verif-otp"
+            const val LOGIN = "request/auth/api/login"
+            const val START_SESSION = "request/auth/api/session"
         }
     }
 }

@@ -20,6 +20,7 @@
         <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1205" />
         <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/drawable-v24/ic_notification_new.xml" value="0.1205" />
         <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/drawable-v24/ic_profile_new.xml" value="0.1205" />
+        <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/drawable-v24/otp_box_inactive.xml" value="0.1205" />
         <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/drawable/bg_gradient_blue.xml" value="0.1205" />
         <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/drawable/ic_add.xml" value="0.1205" />
         <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/drawable/ic_round_add_24.xml" value="0.1205" />
@@ -27,12 +28,21 @@
         <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/drawable/ic_round_filter_alt_24.xml" value="0.1205" />
         <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/drawable/ic_scan.xml" value="0.1205" />
         <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/drawable/ic_send.xml" value="0.1205" />
+        <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/drawable/otp_box.xml" value="0.1205" />
+        <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/drawable/otp_box_active.xml" value="0.1205" />
+        <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/drawable/otp_box_error.xml" value="0.1205" />
+        <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/drawable/otp_box_inactive.xml" value="0.1205" />
         <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/drawable/selected_dot_color.xml" value="0.1205" />
+        <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/layout/activity_detail_history.xml" value="0.25" />
         <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/layout/activity_login.xml" value="0.18055555555555555" />
+        <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/layout/activity_otp.xml" value="0.2" />
         <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/layout/activity_start_session.xml" value="0.25" />
         <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/layout/fragment_account.xml" value="0.25" />
+        <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/layout/fragment_error_bottom_sheet_dialog.xml" value="0.25" />
         <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/layout/fragment_home.xml" value="0.18055555555555555" />
         <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/layout/fragment_notification.xml" value="0.25" />
+        <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/layout/item_history_body.xml" value="0.25" />
         <entry key="..\:/Users/muham/StudioProjects/jupa_fazz_ppob/app/src/main/res/layout/item_loading.xml" value="0.24895833333333334" />
       </map>
     </option>

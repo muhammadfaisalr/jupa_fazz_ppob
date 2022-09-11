@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import id.muhammadfaisal.jupafazz.R
 import id.muhammadfaisal.jupafazz.api.model.BaseResponse
 import id.muhammadfaisal.jupafazz.api.model.register.RegisterRequest
 import id.muhammadfaisal.jupafazz.databinding.ActivityRegisterBinding
@@ -12,6 +11,7 @@ import id.muhammadfaisal.jupafazz.helper.ApiHelper
 import id.muhammadfaisal.jupafazz.helper.GeneralHelper
 import id.muhammadfaisal.jupafazz.helper.ViewHelper
 import id.muhammadfaisal.jupafazz.ui.Loading
+import id.muhammadfaisal.jupafazz.utils.Constant
 import id.muhammadfaisal.jupafazz.utils.Font
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
@@ -86,6 +86,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         loading.show()
 
         val registerRequest = RegisterRequest(name, phone, password, confirmPassword)
+        var isSuccess = false;
 
         CompositeDisposable().add(
             ApiHelper
@@ -95,7 +96,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                         if (t.body() != null) {
                             val body = t.body()!!
                             if (body.isSuccess) {
-                                GeneralHelper.move(this@RegisterActivity, MainActivity::class.java, true)
+                                isSuccess = true
                             } else {
                                 loading.dismiss()
                                 Toast.makeText(this@RegisterActivity, body.message, Toast.LENGTH_SHORT)
@@ -109,7 +110,13 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                     }
 
                     override fun onComplete() {
+                        if (isSuccess) {
+                            loading.dismiss()
 
+                            val bundle = Bundle()
+                            bundle.putString(Constant.Key.WHATSAPP, phone)
+                            GeneralHelper.move(this@RegisterActivity, OtpActivity::class.java, bundle, false)
+                        }
                     }
                 })
         )
