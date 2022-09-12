@@ -1,9 +1,14 @@
 package id.muhammadfaisal.jupafazz.activity
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationBarView
@@ -14,6 +19,7 @@ import id.muhammadfaisal.jupafazz.fragment.HistoryFragment
 import id.muhammadfaisal.jupafazz.fragment.HomeFragment
 import id.muhammadfaisal.jupafazz.helper.GeneralHelper
 import id.muhammadfaisal.jupafazz.helper.ViewHelper
+import id.muhammadfaisal.jupafazz.utils.BottomSheets
 
 class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener,
     View.OnClickListener {
@@ -25,7 +31,14 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         this.binding = ActivityMainBinding.inflate(this.layoutInflater)
         this.setContentView(this.binding.root)
 
+        this.checkPermissions()
         this.initialize()
+    }
+
+    private fun checkPermissions() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            BottomSheets.requestPermission(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), false)
+        }
     }
 
     private fun initialize() {

@@ -13,6 +13,7 @@ import id.muhammadfaisal.jupafazz.helper.ApiHelper
 import id.muhammadfaisal.jupafazz.helper.GeneralHelper
 import id.muhammadfaisal.jupafazz.helper.ViewHelper
 import id.muhammadfaisal.jupafazz.ui.Loading
+import id.muhammadfaisal.jupafazz.utils.BottomSheets
 import id.muhammadfaisal.jupafazz.utils.Constant
 import id.muhammadfaisal.jupafazz.utils.Font
 import io.reactivex.disposables.CompositeDisposable
@@ -87,14 +88,25 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                                 session = data["session"].toString()
                             } else {
                                 loading.dismiss()
-                                Toast.makeText(this@LoginActivity, body.message, Toast.LENGTH_SHORT)
-                                    .show()
+                                BottomSheets.error(
+                                    this@LoginActivity,
+                                    getString(R.string.something_wrong),
+                                    body.message,
+                                    isShowReason = true,
+                                    isCancelable = true
+                                )
                             }
                         }
                     }
 
                     override fun onError(e: Throwable) {
-                        Toast.makeText(this@LoginActivity, e.message, Toast.LENGTH_SHORT).show()
+                        BottomSheets.error(
+                            this@LoginActivity,
+                            getString(R.string.something_wrong),
+                            e.message!!,
+                            isShowReason = false,
+                            isCancelable = true,
+                        )
                     }
 
                     override fun onComplete() {

@@ -50,4 +50,8 @@
     <string name="payment_method">Metode Pembayaran</string>
     <string name="not_receive_code">Tidak Menerima Kode?</string>
     <string name="resend">Kirim Ulang</string>
+    <string name="something_wrong">Terjadi Kesalahan</string>
+    <string name="understood">Mengerti</string>
+    <string name="grant_before">Ups, Berikan Izin Dulu Ya!</string>
+    <string name="grant">Izinkan</string>
 </resources>

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import id.muhammadfaisal.jupafazz.R
 import id.muhammadfaisal.jupafazz.api.model.BaseResponse
 import id.muhammadfaisal.jupafazz.api.model.register.RegisterRequest
 import id.muhammadfaisal.jupafazz.databinding.ActivityRegisterBinding
@@ -11,6 +12,7 @@ import id.muhammadfaisal.jupafazz.helper.ApiHelper
 import id.muhammadfaisal.jupafazz.helper.GeneralHelper
 import id.muhammadfaisal.jupafazz.helper.ViewHelper
 import id.muhammadfaisal.jupafazz.ui.Loading
+import id.muhammadfaisal.jupafazz.utils.BottomSheets
 import id.muhammadfaisal.jupafazz.utils.Constant
 import id.muhammadfaisal.jupafazz.utils.Font
 import io.reactivex.disposables.CompositeDisposable
@@ -61,10 +63,16 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun register() {
-        val isEmpty = GeneralHelper.isInputEmpty(this.binding.inputName, this.binding.inputPhoneNumber, this.binding.inputPassword, this.binding.inputConfirmPassword)
+        val isEmpty = GeneralHelper.isInputEmpty(
+            this.binding.inputName,
+            this.binding.inputPhoneNumber,
+            this.binding.inputPassword,
+            this.binding.inputConfirmPassword
+        )
 
         if (isEmpty) {
-            Toast.makeText(this, "Pastikan semua data terisi dengan benar!.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Pastikan semua data terisi dengan benar!.", Toast.LENGTH_SHORT)
+                .show()
             return
         }
 
@@ -99,14 +107,26 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                                 isSuccess = true
                             } else {
                                 loading.dismiss()
-                                Toast.makeText(this@RegisterActivity, body.message, Toast.LENGTH_SHORT)
-                                    .show()
+
+                                BottomSheets.error(
+                                    this@RegisterActivity,
+                                    getString(R.string.something_wrong),
+                                    body.message,
+                                    isShowReason = false,
+                                    isCancelable = true
+                                )
                             }
                         }
                     }
 
                     override fun onError(e: Throwable) {
-                        Toast.makeText(this@RegisterActivity, e.message, Toast.LENGTH_SHORT).show()
+                        BottomSheets.error(
+                            this@RegisterActivity,
+                            getString(R.string.something_wrong),
+                            e.message!!,
+                            isShowReason = false,
+                            isCancelable = true
+                        )
                     }
 
                     override fun onComplete() {
@@ -115,7 +135,12 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
                             val bundle = Bundle()
                             bundle.putString(Constant.Key.WHATSAPP, phone)
-                            GeneralHelper.move(this@RegisterActivity, OtpActivity::class.java, bundle, false)
+                            GeneralHelper.move(
+                                this@RegisterActivity,
+                                OtpActivity::class.java,
+                                bundle,
+                                false
+                            )
                         }
                     }
                 })

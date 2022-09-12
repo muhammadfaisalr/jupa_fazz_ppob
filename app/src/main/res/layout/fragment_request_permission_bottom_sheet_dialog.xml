@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingVertical="24dp"
+    tools:context=".bottomsheet.RequestPermissionBottomSheetDialog">
+
+    <com.airbnb.lottie.LottieAnimationView
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        app:lottie_fileName="anim/permission.json" />
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:text="@string/grant_before"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="16dp"
+        android:text="Kami akan membutuhkan beberapa perizinan untuk menggunakan aplikasi secara normal tanpa kendala." />
+
+    <com.google.android.material.button.MaterialButton
+        android:backgroundTint="@color/dark_blue"
+        android:textColor="@color/white"
+        android:id="@+id/buttonGrant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:text="@string/grant" />
+
+</LinearLayout>

@@ -13,6 +13,7 @@ import id.muhammadfaisal.jupafazz.helper.ApiHelper
 import id.muhammadfaisal.jupafazz.helper.GeneralHelper
 import id.muhammadfaisal.jupafazz.helper.ViewHelper
 import id.muhammadfaisal.jupafazz.ui.Loading
+import id.muhammadfaisal.jupafazz.utils.BottomSheets
 import id.muhammadfaisal.jupafazz.utils.Constant
 import id.muhammadfaisal.jupafazz.utils.Font
 import io.reactivex.disposables.CompositeDisposable
@@ -116,7 +117,13 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
                     }
 
                     override fun onError(e: Throwable) {
-                        Toast.makeText(this@OtpActivity, e.message, Toast.LENGTH_SHORT).show()
+                        BottomSheets.error(
+                            this@OtpActivity,
+                            getString(R.string.something_wrong),
+                            e.message!!,
+                            isShowReason = false,
+                            isCancelable = true
+                        )
                     }
 
                     override fun onComplete() {
@@ -145,14 +152,25 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
                                 GeneralHelper.move(this@OtpActivity, MainActivity::class.java, true)
                             } else {
                                 binding.otpView.showError()
-                                Toast.makeText(this@OtpActivity, body.message, Toast.LENGTH_SHORT)
-                                    .show()
+                                BottomSheets.error(
+                                    this@OtpActivity,
+                                    getString(R.string.something_wrong),
+                                    body.message,
+                                    isShowReason = false,
+                                    isCancelable = true
+                                )
                             }
                         }
                     }
 
                     override fun onError(e: Throwable) {
-                        Toast.makeText(this@OtpActivity, e.message, Toast.LENGTH_SHORT).show()
+                        BottomSheets.error(
+                            this@OtpActivity,
+                            getString(R.string.something_wrong),
+                            e.message!!,
+                            isShowReason = false,
+                            isCancelable = true
+                        )
                     }
 
                     override fun onComplete() {

@@ -6,6 +6,10 @@ class Constant {
             const val BUNDLING = "BUNDLING"
             const val WHATSAPP = "WHATSAPP"
             const val SESSION = "SESSION"
+            const val TITLE = "TITLE"
+            const val DESCRIPTION = "DESCRIPTION"
+            const val IS_SHOW_REASON = "IS_SHOW_REASON"
+            const val PERMISSIONS = "PERMISSIONS"
         }
     }
 
