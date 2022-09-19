@@ -14,6 +14,7 @@ import id.muhammadfaisal.jupafazz.databinding.FragmentRequestPermissionBottomShe
 import id.muhammadfaisal.jupafazz.helper.ViewHelper
 import id.muhammadfaisal.jupafazz.utils.Constant
 import id.muhammadfaisal.jupafazz.utils.Font
+import kotlin.random.Random
 
 class RequestPermissionBottomSheetDialog : BottomSheetDialogFragment(), View.OnClickListener {
 
@@ -37,7 +38,7 @@ class RequestPermissionBottomSheetDialog : BottomSheetDialogFragment(), View.OnC
     }
 
     private fun request() {
-        ActivityCompat.requestPermissions(requireActivity(), this.permissions, 200)
+        ActivityCompat.requestPermissions(requireActivity(), this.permissions, 101)
         this.dismiss()
     }
 
@@ -49,7 +50,7 @@ class RequestPermissionBottomSheetDialog : BottomSheetDialogFragment(), View.OnC
 
     private fun initialize() {
         this.binding.apply {
-            Font.setInto((requireActivity() as AppCompatActivity), Font.Rubik.MEDIUM, this.textTitle)
+             Font.setInto((requireActivity() as AppCompatActivity), Font.Rubik.MEDIUM, this.textTitle)
             Font.setInto((requireActivity() as AppCompatActivity), Font.Rubik.REGULAR, this.textDesc)
 
             ViewHelper.makeClickable(this@RequestPermissionBottomSheetDialog, this.buttonGrant)

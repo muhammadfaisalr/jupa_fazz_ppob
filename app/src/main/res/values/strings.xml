@@ -54,4 +54,11 @@
     <string name="understood">Mengerti</string>
     <string name="grant_before">Ups, Berikan Izin Dulu Ya!</string>
     <string name="grant">Izinkan</string>
+    <string name="last_transaction">Transaksi Terakhir</string>
+    <string name="search_product">Cari Produk</string>
+    <string name="purchase">Beli</string>
+    <string name="fill_phone_number">Masukkan No. HP</string>
+    <string name="fill_customer_id">Masukkan ID Pelanggan</string>
+    <string name="fill_account_id">Masukkan ID Akun</string>
+    <string name="fill_id">Masukkan No HP/ID Akun/ID Pelanggan</string>
 </resources>

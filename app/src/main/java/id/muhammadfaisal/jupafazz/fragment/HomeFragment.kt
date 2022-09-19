@@ -12,6 +12,7 @@ import com.denzcoskun.imageslider.constants.ScaleTypes
 import id.muhammadfaisal.jupafazz.adapter.MenuAdapter
 import id.muhammadfaisal.jupafazz.databinding.FragmentHomeBinding
 import id.muhammadfaisal.jupafazz.dummy.Dummy
+import id.muhammadfaisal.jupafazz.helper.DatabaseHelper
 import id.muhammadfaisal.jupafazz.utils.Font
 
 class HomeFragment : Fragment() {
@@ -32,7 +33,9 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         this.initialize()
+        this.category()
     }
+
 
     private fun initialize() {
         this.imageSlides = ArrayList()
@@ -73,10 +76,15 @@ class HomeFragment : Fragment() {
                     it.textNews,
                     it.textTitleBalance
                 )
-
-                it.recyclerView.layoutManager = GridLayoutManager(requireActivity(), 4)
-                it.recyclerView.adapter = MenuAdapter(requireContext(), Dummy.getMenus())
             }
+        }
+    }
+
+    private fun category() {
+        val productDao = DatabaseHelper.productDao(requireContext())
+        this.binding.let {
+            it.recyclerView.layoutManager = GridLayoutManager(requireActivity(), 4)
+            it.recyclerView.adapter = MenuAdapter(requireContext(), productDao.getCategories())
         }
     }
 

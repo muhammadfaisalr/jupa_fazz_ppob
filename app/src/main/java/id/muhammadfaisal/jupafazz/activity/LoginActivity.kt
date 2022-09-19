@@ -16,6 +16,7 @@ import id.muhammadfaisal.jupafazz.ui.Loading
 import id.muhammadfaisal.jupafazz.utils.BottomSheets
 import id.muhammadfaisal.jupafazz.utils.Constant
 import id.muhammadfaisal.jupafazz.utils.Font
+import id.muhammadfaisal.jupafazz.utils.Preferences
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 import org.apache.commons.lang3.StringUtils
@@ -34,6 +35,15 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initialize() {
+
+        val session = Preferences.get(this, Constant.Key.SESSION) as String?
+
+        if (session != null) {
+            val bundle = Bundle()
+            bundle.putString(Constant.Key.SESSION, session)
+            GeneralHelper.move(this, StartSessionActivity::class.java, bundle, true)
+        }
+
         this.binding.let {
             Font.apply {
                 setInto(this@LoginActivity, Font.Rubik.SEMI_BOLD, it.textTitle)
@@ -113,6 +123,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                         loading.dismiss()
 
                         if (isSuccess || session.isNotEmpty()) {
+
+                            Preferences.save(this@LoginActivity, Constant.Key.SESSION, session)
+
                             val bundle = Bundle()
                             bundle.putString(Constant.Key.SESSION, session)
                             GeneralHelper.move(this@LoginActivity, StartSessionActivity::class.java, bundle, true)

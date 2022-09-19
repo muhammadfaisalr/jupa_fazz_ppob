@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:orientation="vertical"
+    android:paddingHorizontal="8dp"
+    android:background="@drawable/bg_stroke_rounded"
+    android:paddingVertical="12dp">
+
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pulsa"
+        android:textSize="16sp" />
+
+    <TextView
+        android:textColor="@color/blue"
+        android:id="@+id/textPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Rp50.000" />
+
+</LinearLayout>

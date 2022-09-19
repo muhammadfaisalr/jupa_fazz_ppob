@@ -42,4 +42,7 @@ interface ApiServices {
     fun startSession(
         @Field("session") session: String,
     ) : Observable<Response<BaseResponse>>
+
+    @GET(Constant.URL.GET_PRODUCT)
+    fun getProducts() : Observable<Response<BaseResponse>>
 }

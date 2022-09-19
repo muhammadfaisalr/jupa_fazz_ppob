@@ -51,5 +51,12 @@ class ApiHelper {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
         }
+
+        fun getProducts() : Observable<Response<BaseResponse>> {
+            return getServices()
+                .getProducts()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+        }
     }
 }

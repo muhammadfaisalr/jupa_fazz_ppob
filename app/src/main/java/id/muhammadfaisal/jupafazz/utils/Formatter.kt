@@ -16,5 +16,9 @@ class Formatter {
 
             return result
         }
+
+        fun queryFormat(s: String): String {
+            return "%$s%"
+        }
     }
 }

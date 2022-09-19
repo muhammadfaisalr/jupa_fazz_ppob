@@ -3,9 +3,11 @@ package id.muhammadfaisal.jupafazz.utils
 class Constant {
     class Key {
         companion object {
+            const val PRODUCT_ENT = "PRODUCT_ENT"
             const val BUNDLING = "BUNDLING"
             const val WHATSAPP = "WHATSAPP"
             const val SESSION = "SESSION"
+            const val CATEGORY = "CATEGORY"
             const val TITLE = "TITLE"
             const val DESCRIPTION = "DESCRIPTION"
             const val IS_SHOW_REASON = "IS_SHOW_REASON"
@@ -26,11 +28,34 @@ class Constant {
     class URL {
         companion object {
             const val BASE = "http://api.jupafazz.jupagroup.com/"
+
+            //Auth
             const val REGISTER = "request/auth/api/register"
             const val RESEND_OTP = "request/auth/api/resend-otp"
             const val VERIFICATION_OTP = "request/auth/api/verif-otp"
             const val LOGIN = "request/auth/api/login"
             const val START_SESSION = "request/auth/api/session"
+
+            //Product
+            const val GET_PRODUCT = "request/product/api/all"
+        }
+    }
+
+    class CATEGORY {
+        companion object {
+            const val DATA = "Data"
+            const val E_MONEY = "E-Money"
+            const val GAMES = "Games"
+            const val PLN = "PLN"
+            const val SMS_PACKAGE = "Paket SMS & Telpon"
+            const val PREPAID_BALANCE = "Pulsa"
+            const val VOUCHER = "Voucher"
+        }
+    }
+
+    class TABLE {
+        companion object {
+            const val PRODUCT = "m_product"
         }
     }
 }

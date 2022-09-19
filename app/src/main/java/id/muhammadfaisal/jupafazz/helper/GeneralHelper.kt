@@ -1,11 +1,14 @@
 package id.muhammadfaisal.jupafazz.helper
 
+import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
+import id.muhammadfaisal.jupafazz.R
+import id.muhammadfaisal.jupafazz.activity.CreateTransactionActivity
 import id.muhammadfaisal.jupafazz.utils.Constant
 
 class GeneralHelper {
@@ -19,7 +22,13 @@ class GeneralHelper {
                 intent.putExtra(Constant.Key.BUNDLING, bundle)
             }
 
-            context.startActivity(intent);
+            if (clz == CreateTransactionActivity::class.java) {
+                val options = ActivityOptions.makeCustomAnimation(context, R.anim.slide_up, R.anim.slide_down)
+                context.startActivity(intent, options.toBundle())
+            } else  {
+                context.startActivity(intent);
+            }
+
             if (isForget) {
                 (context as AppCompatActivity).finish()
             }
@@ -32,7 +41,7 @@ class GeneralHelper {
         fun isInputEmpty(vararg inputs: EditText) : Boolean {
             var isEmpty = true
             for (input in inputs) {
-                if (input.toString().isNotEmpty()) {
+                if (input.text.toString().isNotEmpty()) {
                     isEmpty = false
                 }
             }

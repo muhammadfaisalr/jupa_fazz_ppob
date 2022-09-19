@@ -2,8 +2,11 @@ package id.muhammadfaisal.jupafazz.utils
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import id.muhammadfaisal.jupafazz.R
+import id.muhammadfaisal.jupafazz.bottomsheet.DetailProductBottomSheetDialogFragment
 import id.muhammadfaisal.jupafazz.bottomsheet.ErrorBottomSheetDialogFragment
 import id.muhammadfaisal.jupafazz.bottomsheet.RequestPermissionBottomSheetDialog
+import id.muhammadfaisal.jupafazz.db.entity.ProductEntity
 
 class BottomSheets {
     companion object {
@@ -19,11 +22,25 @@ class BottomSheets {
             bottomSheet.show(activity.supportFragmentManager, BottomSheets::class.java.simpleName)
         }
 
+        fun error(activity: AppCompatActivity, t: Throwable, isShowReason: Boolean, isCancelable: Boolean) {
+            error(activity, activity.getString(R.string.something_wrong), t.message!!, isShowReason, isCancelable)
+        }
+
         fun requestPermission(activity: AppCompatActivity, permissions: Array<out String>, isCancelable: Boolean) {
             val bundle = Bundle()
             bundle.putStringArray(Constant.Key.PERMISSIONS, permissions)
 
             val bottomSheet = RequestPermissionBottomSheetDialog()
+            bottomSheet.isCancelable = isCancelable
+            bottomSheet.arguments = bundle
+            bottomSheet.show(activity.supportFragmentManager, BottomSheets::class.java.simpleName)
+        }
+
+        fun detailProduct(activity: AppCompatActivity, productEntity: ProductEntity, isCancelable: Boolean) {
+            val bundle = Bundle()
+            bundle.putSerializable(Constant.Key.PRODUCT_ENT, productEntity)
+
+            val bottomSheet = DetailProductBottomSheetDialogFragment()
             bottomSheet.isCancelable = isCancelable
             bottomSheet.arguments = bundle
             bottomSheet.show(activity.supportFragmentManager, BottomSheets::class.java.simpleName)

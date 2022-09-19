@@ -18,6 +18,9 @@
         android:theme="@style/Theme.JupaFazz"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+        <service android:name=".service.VersioningService" />
+
         <activity
             android:name=".activity.StartSessionActivity"
             android:exported="false"
