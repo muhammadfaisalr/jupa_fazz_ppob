@@ -37,10 +37,12 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private fun initialize() {
 
         val session = Preferences.get(this, Constant.Key.SESSION) as String?
+        val phone = Preferences.get(this, Constant.Key.WHATSAPP) as String?
 
-        if (session != null) {
+        if (session != null && phone != null) {
             val bundle = Bundle()
             bundle.putString(Constant.Key.SESSION, session)
+            bundle.putString(Constant.Key.WHATSAPP, phone)
             GeneralHelper.move(this, StartSessionActivity::class.java, bundle, true)
         }
 
@@ -128,6 +130,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
                             val bundle = Bundle()
                             bundle.putString(Constant.Key.SESSION, session)
+                            bundle.putString(Constant.Key.WHATSAPP, phone)
                             GeneralHelper.move(this@LoginActivity, StartSessionActivity::class.java, bundle, true)
                         }
                     }

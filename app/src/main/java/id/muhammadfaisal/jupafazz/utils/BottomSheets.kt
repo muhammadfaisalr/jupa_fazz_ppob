@@ -23,6 +23,7 @@ class BottomSheets {
         }
 
         fun error(activity: AppCompatActivity, t: Throwable, isShowReason: Boolean, isCancelable: Boolean) {
+            t.printStackTrace()
             error(activity, activity.getString(R.string.something_wrong), t.message!!, isShowReason, isCancelable)
         }
 

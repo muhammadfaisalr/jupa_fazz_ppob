@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".bottomsheet.ErrorBottomSheetDialogFragment">
 
@@ -40,7 +39,7 @@
         android:layout_marginTop="24dp"
         android:background="@color/grey">
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/buttonOk"
             style="@style/TextAppearance.MaterialComponents.Button"
             android:layout_width="wrap_content"
@@ -52,19 +51,6 @@
             android:textColor="@color/white"
             android:textSize="12sp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonWhy"
-            android:textColor="@color/dark_blue"
-            app:backgroundTint="@color/transparent"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginHorizontal="16dp"
-            android:letterSpacing="0.004"
-            android:text="Mengapa saya mendapatkan pesan ini?"
-            android:textAllCaps="false"
-            android:textSize="12sp" />
 
     </RelativeLayout>
 

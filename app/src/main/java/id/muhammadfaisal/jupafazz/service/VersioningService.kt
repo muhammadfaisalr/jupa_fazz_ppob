@@ -27,70 +27,110 @@ class VersioningService() : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        val session = Preferences.get(applicationContext, Constant.Key.SESSION)
+        val productV = Preferences.get(applicationContext, Constant.Key.PRODUCT_V)
+        var productVersion = ""
+        CompositeDisposable().add(
+            ApiHelper
+                .getProductVersion()
+                .subscribeWith(object : DisposableObserver<Response<BaseResponse>>() {
+                    override fun onNext(t: Response<BaseResponse>) {
+                        val body = t.body()!!
 
-        if (session == null) {
-            val startTime = System.currentTimeMillis()
-            Log.d(VersioningService::class.java.simpleName, "Versioning Started();")
-            CompositeDisposable().add(
-                ApiHelper
-                    .getProducts()
-                    .subscribeWith(object : DisposableObserver<Response<BaseResponse>>() {
-                        override fun onNext(t: Response<BaseResponse>) {
-                            if (t.body() != null) {
-                                val body = t.body()!!
+                        if (body.isSuccess) {
+                            val data = body.data as Map<*, *>
+                            productVersion = data["version"].toString()
+                        } else {
+                            BottomSheets.error(
+                                (baseContext as AppCompatActivity),
+                                getString(R.string.something_wrong),
+                                body.message,
+                                isShowReason = false,
+                                isCancelable = true
+                            )
+                        }
+                    }
 
-                                if (body.isSuccess) {
-                                    val data = body.data as Map<*, *>
-                                    val products1 = data["product"] as List<*>
+                    override fun onError(e: Throwable) {
+                        BottomSheets.error((baseContext as AppCompatActivity), e, false, true)
+                    }
 
-                                    for (product in products1) {
-                                        val gson = Gson()
-                                        val productA = gson.fromJson(
-                                            gson.toJson(product),
-                                            ProductResponse::class.java
-                                        )
+                    override fun onComplete() {
+                        if (productV == null || productV != productVersion) {
+                            val startTime = System.currentTimeMillis()
+                            Log.d(VersioningService::class.java.simpleName, "Versioning Started();")
+                            CompositeDisposable().add(
+                                ApiHelper
+                                    .getProducts()
+                                    .subscribeWith(object : DisposableObserver<Response<BaseResponse>>() {
+                                        override fun onNext(t: Response<BaseResponse>) {
+                                            if (t.body() != null) {
+                                                val body = t.body()!!
 
-                                        DatabaseHelper
-                                            .productDao(applicationContext)
-                                            .insert(
-                                                ProductEntity(
-                                                    productA.id,
-                                                    productA.product,
-                                                    productA.type,
-                                                    productA.brand,
-                                                    productA.category,
-                                                    productA.price,
-                                                    productA.status,
-                                                    productA.sku,
-                                                    productA.note
-                                                )
+                                                if (body.isSuccess) {
+                                                    val data = body.data as Map<*, *>
+                                                    val products1 = data["product"] as List<*>
+
+                                                    for (product in products1) {
+                                                        val gson = Gson()
+                                                        val productA = gson.fromJson(
+                                                            gson.toJson(product),
+                                                            ProductResponse::class.java
+                                                        )
+
+                                                        DatabaseHelper
+                                                            .productDao(applicationContext)
+                                                            .insert(
+                                                                ProductEntity(
+                                                                    productA.id,
+                                                                    productA.product,
+                                                                    productA.type,
+                                                                    productA.brand,
+                                                                    productA.category,
+                                                                    productA.price,
+                                                                    productA.status,
+                                                                    productA.sku,
+                                                                    productA.note
+                                                                )
+                                                            )
+                                                    }
+                                                } else {
+                                                    BottomSheets.error(
+                                                        (baseContext as AppCompatActivity),
+                                                        getString(R.string.something_wrong),
+                                                        body.message,
+                                                        isShowReason = false,
+                                                        isCancelable = true
+                                                    )
+                                                }
+                                            }
+                                        }
+
+                                        override fun onError(e: Throwable) {
+                                            BottomSheets.error((baseContext as AppCompatActivity), e, false, true)
+                                        }
+
+                                        override fun onComplete() {
+                                            Preferences.save(baseContext, Constant.Key.PRODUCT_V, productVersion)
+                                            Log.d(
+                                                VersioningService::class.java.simpleName,
+                                                "Versioning Ended. Done in ${System.currentTimeMillis() - startTime}ms"
                                             )
-                                    }
-                                } else {
-                                    BottomSheets.error(
-                                        (applicationContext as AppCompatActivity),
-                                        getString(R.string.something_wrong),
-                                        body.message,
-                                        isShowReason = false,
-                                        isCancelable = true
-                                    )
-                                }
-                            }
+                                            Toast.makeText(
+                                                baseContext,
+                                                "Data Produk Berhasil Diperbarui!.",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+
+                                    })
+                            )
                         }
 
-                        override fun onError(e: Throwable) {
-                            BottomSheets.error((applicationContext as AppCompatActivity), e, false, true)
-                        }
+                    }
 
-                        override fun onComplete() {
-                            Log.d(VersioningService::class.java.simpleName, "Versioning Ended. Done in ${System.currentTimeMillis() - startTime}ms")
-                            Toast.makeText(applicationContext, "Data Produk Berhasil Diperbarui!.", Toast.LENGTH_SHORT).show()
-                        }
+                })
+        )
 
-                    })
-            )
-        }
 
         return START_STICKY
     }

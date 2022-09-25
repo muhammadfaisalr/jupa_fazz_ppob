@@ -18,6 +18,7 @@ import id.muhammadfaisal.jupafazz.service.VersioningService
 import id.muhammadfaisal.jupafazz.utils.BottomSheets
 import id.muhammadfaisal.jupafazz.utils.Constant
 import id.muhammadfaisal.jupafazz.utils.Font
+import id.muhammadfaisal.jupafazz.utils.Preferences
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 import retrofit2.Response
@@ -27,6 +28,7 @@ class StartSessionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStartSessionBinding
 
     private lateinit var session: String
+    private lateinit var wa: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +44,10 @@ class StartSessionActivity : AppCompatActivity() {
 
         if (bundle != null) {
             this.session = bundle.getString(Constant.Key.SESSION, "")
+            this.wa = bundle.getString(Constant.Key.WHATSAPP, "")
+        } else {
+            this.session = Preferences.get(this, Constant.Key.SESSION) as String
+            this.wa = Preferences.get(this, Constant.Key.WHATSAPP) as String
         }
     }
 
@@ -49,17 +55,24 @@ class StartSessionActivity : AppCompatActivity() {
         Font.setInto(this, Font.Rubik.MEDIUM, this.binding.textPleaseWait)
         Font.setInto(this, Font.Rubik.REGULAR, this.binding.textDesc)
 
+        var isSuccess = false
         CompositeDisposable().add(
             ApiHelper
-                .startSession(session)
+                .userDetail(wa, session)
                 .subscribeWith(object : DisposableObserver<Response<BaseResponse>>() {
                     override fun onNext(t: Response<BaseResponse>) {
-                        val body  = t.body()
+                        val body = t.body()
 
                         if (body != null) {
                             if (body.isSuccess) {
-                                GeneralHelper.move(this@StartSessionActivity, MainActivity::class.java, true)
+                                val data = body.data as Map<*, *>
+                                this@StartSessionActivity.apply {
+                                    Preferences.save(this, Constant.Key.BALANCE, data["balance"]!!)
+                                    Preferences.save(this, Constant.Key.NAME, data["name"]!!)
+                                    Preferences.save(this, Constant.Key.WHATSAPP, wa)
+                                }
                             } else {
+                                isSuccess = false
                                 BottomSheets.error(
                                     this@StartSessionActivity,
                                     getString(R.string.something_wrong),
@@ -72,6 +85,7 @@ class StartSessionActivity : AppCompatActivity() {
                     }
 
                     override fun onError(e: Throwable) {
+                        isSuccess = false
                         BottomSheets.error(
                             this@StartSessionActivity,
                             getString(R.string.something_wrong),
@@ -82,31 +96,18 @@ class StartSessionActivity : AppCompatActivity() {
                     }
 
                     override fun onComplete() {
-                        startService(Intent(this@StartSessionActivity, VersioningService::class.java)).also { it ->
-                            GeneralHelper.move(this@StartSessionActivity, MainActivity::class.java, true)
+                        this@StartSessionActivity.apply {
+                            startService(
+                                Intent(
+                                    this,
+                                    VersioningService::class.java
+                                )
+                            ).also {
+                                GeneralHelper.move(this, MainActivity::class.java, true)
+                            }
                         }
                     }
                 })
         )
-
-        //TODO:: Disini Cek Master Versionnya apakah beda dengan yg di lokal, kalau beda nanti di update data di db nya.
-        /*        CompositeDisposable().add(
-            ApiHelper
-                .startSession(session)
-                .subscribeWith(object : DisposableObserver<Response<BaseResponse>>() {
-                    override fun onNext(t: Response<BaseResponse>) {
-
-                    }
-
-                    override fun onError(e: Throwable) {
-                        BottomSheets.error(this@StartSessionActivity, e, false, true)
-                    }
-
-                    override fun onComplete() {
-                        GeneralHelper.move(this@StartSessionActivity, MainActivity::class.java, true)
-                    }
-
-                })
-        )*/
     }
 }

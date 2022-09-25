@@ -52,6 +52,20 @@ class ApiHelper {
                 .subscribeOn(Schedulers.io())
         }
 
+        fun getProductVersion() : Observable<Response<BaseResponse>> {
+            return getServices()
+                .getProductVersion()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+        }
+
+        fun userDetail(wa: String, session: String) : Observable<Response<BaseResponse>> {
+            return getServices()
+                .userDetail(wa, session)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+        }
+
         fun getProducts() : Observable<Response<BaseResponse>> {
             return getServices()
                 .getProducts()

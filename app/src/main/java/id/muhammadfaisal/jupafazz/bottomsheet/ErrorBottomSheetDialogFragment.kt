@@ -60,24 +60,20 @@ class ErrorBottomSheetDialogFragment : BottomSheetDialogFragment(), View.OnClick
                 (requireActivity() as AppCompatActivity),
                 Font.Rubik.REGULAR,
                 this.textDesc,
-                this.buttonWhy
             )
 
             this.textTitle.text = title
             this.textDesc.text = StringUtils.capitalize(desc)
 
             if (!isShowReason) {
-                ViewHelper.gone(this.buttonWhy)
             }
 
-            ViewHelper.makeClickable(this@ErrorBottomSheetDialogFragment, this.buttonOk, this.buttonWhy)
+            ViewHelper.makeClickable(this@ErrorBottomSheetDialogFragment, this.buttonOk)
         }
     }
 
     override fun onClick(view: View?) {
-        if (view == this.binding.buttonWhy) {
-            this.reason()
-        } else if (view == this.binding.buttonOk) {
+        if (view == this.binding.buttonOk) {
             this.dismiss()
         }
     }

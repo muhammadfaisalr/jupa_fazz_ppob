@@ -43,6 +43,16 @@ interface ApiServices {
         @Field("session") session: String,
     ) : Observable<Response<BaseResponse>>
 
+    @FormUrlEncoded
+    @POST(Constant.URL.USER_DETAIL)
+    fun userDetail(
+        @Field("wa") wa: String,
+        @Field("session") session: String,
+    ) : Observable<Response<BaseResponse>>
+
     @GET(Constant.URL.GET_PRODUCT)
     fun getProducts() : Observable<Response<BaseResponse>>
+
+    @GET(Constant.URL.GET_PRODUCT_V)
+    fun getProductVersion() : Observable<Response<BaseResponse>>
 }

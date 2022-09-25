@@ -4,11 +4,14 @@ class Constant {
     class Key {
         companion object {
             const val PRODUCT_ENT = "PRODUCT_ENT"
+            const val PRODUCT_V = "PRODUCT_V"
             const val BUNDLING = "BUNDLING"
             const val WHATSAPP = "WHATSAPP"
             const val SESSION = "SESSION"
             const val CATEGORY = "CATEGORY"
+            const val NAME = "NAME"
             const val TITLE = "TITLE"
+            const val BALANCE = "BALANCE"
             const val DESCRIPTION = "DESCRIPTION"
             const val IS_SHOW_REASON = "IS_SHOW_REASON"
             const val PERMISSIONS = "PERMISSIONS"
@@ -36,8 +39,12 @@ class Constant {
             const val LOGIN = "request/auth/api/login"
             const val START_SESSION = "request/auth/api/session"
 
+            //Users
+            const val USER_DETAIL = "request/users/api/detail"
+
             //Product
             const val GET_PRODUCT = "request/product/api/all"
+            const val GET_PRODUCT_V = "request/product/api/version"
         }
     }
 
