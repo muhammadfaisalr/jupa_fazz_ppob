@@ -9,11 +9,11 @@
     tools:context=".bottomsheet.RequestPermissionBottomSheetDialog">
 
     <com.airbnb.lottie.LottieAnimationView
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        android:layout_width="128dp"
+        android:layout_width="121dp"
         android:layout_height="128dp"
-        app:lottie_fileName="anim/permission.json" />
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="anim/permission.json"
+        app:lottie_loop="true" />
 
     <TextView
         android:id="@+id/textTitle"

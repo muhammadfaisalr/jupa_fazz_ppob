@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".bottomsheet.DepositAmountBottomSheetDialogFragment">
+
+    <ImageView
+        android:id="@+id/imageClose"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:padding="16dp"
+        android:src="@drawable/ic_round_close_24"
+        app:tint="@color/grey_font" />
+
+    <ImageView
+        android:layout_marginHorizontal="16dp"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:id="@+id/image"/>
+
+    <TextView
+        android:layout_marginTop="8dp"
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:text="Pulsa Telkomsel 5K"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:text="Gopay"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/input_amount"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/textAmountTitle"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_centerInParent="true"
+            android:id="@+id/textPrefixRp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="8dp"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:text="@string/prefix_rp" />
+
+        <id.muhammadfaisal.jupafazz.ui.RupiahEditText
+            android:layout_centerInParent="true"
+            android:layout_toEndOf="@id/textPrefixRp"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:background="@android:color/transparent"
+            android:inputType="number"
+            android:id="@+id/inputAmount" />
+
+    </RelativeLayout>
+
+    <!--<com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:boxBackgroundColor="@color/grey"
+        app:boxStrokeColor="@color/dark_blue">
+
+
+    &lt;!&ndash;TODO:: Change to RupiahEditText &ndash;&gt;
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Masukkan nominal isi saldo"/>
+
+    </com.google.android.material.textfield.TextInputLayout>-->
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonProcess"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/dark_blue"
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="16dp"
+        android:text="@string/process"/>
+
+</LinearLayout>

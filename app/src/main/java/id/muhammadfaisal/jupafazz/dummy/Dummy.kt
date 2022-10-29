@@ -32,17 +32,5 @@ class Dummy {
 
             return menus
         }
-
-        fun getHistories() : ArrayList<History> {
-            val histories = ArrayList<History>()
-
-            histories.add(History(1660669200000, "Pulsa Three 5K", 5700, "0812344321", "PULSA", Constant.Status.SUCCESS))
-            histories.add(History(1660790314097, "Pulsa Three 5K", 5700, "0812344321", "PULSA", Constant.Status.ON_PROCESS))
-            histories.add(History(1660669200000, "Pulsa Three 10K", 11200, "0812344321", "PULSA", Constant.Status.FAILED))
-            histories.add(History(1660669200000, "Pulsa Three 5K", 5700, "0812344321", "PULSA", Constant.Status.CANCEL))
-            histories.add(History(1660669200000, "Pulsa Three 5K", 5700, "0812344321", "PULSA", Constant.Status.SUCCESS))
-
-            return histories
-        }
     }
 }

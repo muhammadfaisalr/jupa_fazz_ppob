@@ -50,9 +50,84 @@ interface ApiServices {
         @Field("session") session: String,
     ) : Observable<Response<BaseResponse>>
 
+    @FormUrlEncoded
+    @POST(Constant.URL.TRANSACTION)
+    fun transaction(
+        @Field("wa") wa: String,
+        @Field("session") session: String,
+        @Field("product") product: String,
+        @Field("target") target: String,
+    ) : Observable<Response<BaseResponse>>
+
+    @FormUrlEncoded
+    @POST(Constant.URL.DETAIL_TRANSACTION)
+    fun detailTransaction(
+        @Field("wa") wa: String,
+        @Field("session") session: String,
+        @Field("order_id") order_id: String,
+    ) : Observable<Response<BaseResponse>>
+
+    @FormUrlEncoded
+    @POST(Constant.URL.DEPOSIT_METHOD)
+    fun depositMethod(
+        @Field("wa") wa: String,
+        @Field("session") session: String,
+    ) : Observable<Response<BaseResponse>>
+
+    @FormUrlEncoded
+    @POST(Constant.URL.DEPOSIT_REQUEST)
+    fun depositRequest(
+        @Field("wa") wa: String,
+        @Field("session") session: String,
+        @Field("method") method: String,
+        @Field("quantity") amount: String
+    ) : Observable<Response<BaseResponse>>
+
+    @FormUrlEncoded
+    @POST(Constant.URL.DEPOSIT_LIST)
+    fun depositList(
+        @Field("wa") wa: String,
+        @Field("session") session: String,
+    ) : Observable<Response<BaseResponse>>
+
+    @FormUrlEncoded
+    @POST(Constant.URL.USER_BALANCE)
+    fun getBalance(
+        @Field("wa") wa: String,
+        @Field("session") session: String,
+    ) : Observable<Response<BaseResponse>>
+
+
+    @FormUrlEncoded
+    @POST(Constant.URL.LIST_TRANSACTION)
+    fun getHistory(
+        @Field("wa") wa: String,
+        @Field("session") session: String,
+    ) : Observable<Response<BaseResponse>>
+
+    @FormUrlEncoded
+    @POST(Constant.URL.LIST_TRANSACTION)
+    fun destroySession(
+        @Field("wa") wa: String,
+        @Field("session") session: String,
+    ) : Observable<Response<BaseResponse>>
+
+    @FormUrlEncoded
+    @POST(Constant.URL.CHANGE_PASSWORD)
+    fun changePassword(
+        @Field("wa") wa: String,
+        @Field("session") session: String,
+        @Field("password_old") oldPassword: String,
+        @Field("password_new") newPassword: String,
+        @Field("password_confirm") confirmNewPassword: String,
+    ) : Observable<Response<BaseResponse>>
+
     @GET(Constant.URL.GET_PRODUCT)
     fun getProducts() : Observable<Response<BaseResponse>>
 
     @GET(Constant.URL.GET_PRODUCT_V)
     fun getProductVersion() : Observable<Response<BaseResponse>>
+
+    @GET(Constant.URL.BANNER)
+    fun getBanners() : Observable<Response<BaseResponse>>
 }

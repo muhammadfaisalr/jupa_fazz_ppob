@@ -72,6 +72,11 @@ class StartSessionActivity : AppCompatActivity() {
                                     Preferences.save(this, Constant.Key.WHATSAPP, wa)
                                 }
                             } else {
+                                if (GeneralHelper.isSessionExpire(body.message)) {
+                                    GeneralHelper.sessionExpired(this@StartSessionActivity)
+                                    return
+                                }
+
                                 isSuccess = false
                                 BottomSheets.error(
                                     this@StartSessionActivity,

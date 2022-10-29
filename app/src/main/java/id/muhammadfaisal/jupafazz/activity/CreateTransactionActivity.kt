@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
@@ -16,12 +17,13 @@ import id.muhammadfaisal.jupafazz.api.model.product.ProductResponse
 import id.muhammadfaisal.jupafazz.databinding.ActivityCreateTransactionBinding
 import id.muhammadfaisal.jupafazz.helper.ApiHelper
 import id.muhammadfaisal.jupafazz.helper.DatabaseHelper
+import id.muhammadfaisal.jupafazz.helper.ViewHelper
 import id.muhammadfaisal.jupafazz.utils.*
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 import retrofit2.Response
 
-class CreateTransactionActivity : AppCompatActivity(), TextWatcher {
+class CreateTransactionActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
     private lateinit var binding: ActivityCreateTransactionBinding
 
@@ -53,6 +55,8 @@ class CreateTransactionActivity : AppCompatActivity(), TextWatcher {
 
             it.inputSearch.addTextChangedListener(this)
         }
+
+        ViewHelper.makeClickable(this, this.binding.textTitle)
     }
 
     private fun data() {
@@ -90,10 +94,16 @@ class CreateTransactionActivity : AppCompatActivity(), TextWatcher {
                     productDao.query(Formatter.queryFormat(s))
                 }
 
-                this.binding.recyclerProduct.adapter = ProductDetailAdapter(this, products)
+                this.binding.recyclerProduct.adapter = ProductDetailAdapter(this, products, Constant.CLS_NAME.CREATE_TRX_ACT, null)
             } else {
                 this.data()
             }
+        }
+    }
+
+    override fun onClick(p0: View?) {
+        if (p0 == this.binding.textTitle) {
+            this.finish()
         }
     }
 }

@@ -18,6 +18,33 @@
         android:theme="@style/Theme.JupaFazz"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".activity.DetailDepositActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.DepositHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.WebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MutationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.RequestDepositActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MethodDepositActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SuccessTransactionActivity"
+            android:exported="false" />
 
         <service android:name=".service.VersioningService" />
 
@@ -35,7 +62,7 @@
             android:name=".activity.CreateTransactionActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".activity.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

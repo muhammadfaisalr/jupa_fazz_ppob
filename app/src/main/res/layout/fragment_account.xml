@@ -30,7 +30,8 @@
                     android:layout_height="128dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="16dp"
-                    android:src="@color/black"
+                    app:civ_circle_background_color="@color/dark_blue"
+                    android:src="@drawable/logo_square"
                     app:layout_anchor="@id/cardQr"
                     app:layout_anchorGravity="bottom|center" />
 
@@ -95,6 +96,7 @@
                 app:drawableStartCompat="@drawable/ic_round_person_24" />
 
             <TextView
+                android:foreground="?attr/selectableItemBackground"
                 android:drawablePadding="8dp"
                 android:gravity="center|start"
                 app:drawableStartCompat="@drawable/ic_round_password_24"
@@ -108,6 +110,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:foreground="?attr/selectableItemBackground"
                 android:id="@+id/textTopUpBalance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -118,12 +121,13 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:foreground="?attr/selectableItemBackground"
                 android:id="@+id/textMutationBalance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="12dp"
                 android:paddingVertical="16dp"
-                android:text="Mutasi Saldo"
+                android:text="@string/mutation"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
@@ -144,6 +148,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:foreground="?attr/selectableItemBackground"
                 android:id="@+id/textPriceList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -154,6 +159,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:foreground="?attr/selectableItemBackground"
                 android:id="@+id/textHelp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -164,6 +170,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:foreground="?attr/selectableItemBackground"
                 android:id="@+id/textSK"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -174,6 +181,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:foreground="?attr/selectableItemBackground"
                 android:id="@+id/textFaq"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -184,6 +192,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:foreground="?attr/selectableItemBackground"
                 android:id="@+id/textPrivacyPolicy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -194,6 +203,23 @@
                 android:textSize="14sp" />
 
         </LinearLayout>
+
+        <TextView
+            android:background="@color/white"
+            android:layout_marginTop="12dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:id="@+id/textLogout"
+            android:drawableLeft="@drawable/ic_round_exit_to_app_24"
+            android:drawablePadding="8dp"
+            android:gravity="center|start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="16dp"
+            android:text="@string/logout"
+            android:drawableTint="@color/red"
+            android:textColor="@color/red"
+            android:textSize="14sp" />
 
     </LinearLayout>
 

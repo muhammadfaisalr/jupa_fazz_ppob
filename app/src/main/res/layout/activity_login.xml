@@ -24,9 +24,9 @@
 
             <ImageView
                 android:scaleType="fitXY"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:src="@drawable/logo_square"/>
+                android:layout_width="156dp"
+                android:layout_height="48dp"
+                android:src="@drawable/logo_rect_blue"/>
 
             <TextView
                 android:gravity="end"
@@ -38,6 +38,7 @@
         </LinearLayout>
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/textTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

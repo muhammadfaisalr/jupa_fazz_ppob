@@ -17,6 +17,7 @@ import id.muhammadfaisal.jupafazz.databinding.ActivityMainBinding
 import id.muhammadfaisal.jupafazz.fragment.AccountFragment
 import id.muhammadfaisal.jupafazz.fragment.HistoryFragment
 import id.muhammadfaisal.jupafazz.fragment.HomeFragment
+import id.muhammadfaisal.jupafazz.fragment.NotificationFragment
 import id.muhammadfaisal.jupafazz.helper.GeneralHelper
 import id.muhammadfaisal.jupafazz.helper.ViewHelper
 import id.muhammadfaisal.jupafazz.utils.BottomSheets
@@ -65,6 +66,8 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
             this.inflate(HomeFragment())
         } else if (item.title.equals(getString(R.string.account))) {
             this.inflate(AccountFragment())
+        } else if (item.title.equals(getString(R.string.notification))) {
+            this.inflate(NotificationFragment())
         }
 
         item.isChecked = true

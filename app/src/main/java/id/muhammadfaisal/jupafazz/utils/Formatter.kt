@@ -1,5 +1,7 @@
 package id.muhammadfaisal.jupafazz.utils
 
+import id.muhammadfaisal.jupafazz.helper.GeneralHelper
+import id.muhammadfaisal.jupafazz.ui.RupiahEditText
 import java.text.NumberFormat
 import java.util.*
 
@@ -19,6 +21,14 @@ class Formatter {
 
         fun queryFormat(s: String): String {
             return "%$s%"
+        }
+
+        fun plainCurrency(rpEditText: RupiahEditText) : String {
+            if (GeneralHelper.isInputEmpty(rpEditText)) {
+                return ""
+            }
+
+            return rpEditText.text.toString().replace(".", "")
         }
     }
 }

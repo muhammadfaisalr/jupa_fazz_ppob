@@ -12,6 +12,7 @@ import id.muhammadfaisal.jupafazz.R
 import id.muhammadfaisal.jupafazz.api.model.product.ProductResponse
 import id.muhammadfaisal.jupafazz.databinding.ItemProductTitleBinding
 import id.muhammadfaisal.jupafazz.helper.DatabaseHelper
+import id.muhammadfaisal.jupafazz.utils.Constant
 import id.muhammadfaisal.jupafazz.utils.Font
 
 class ProductTitleAdapter(val context: Context, val categories: List<String>) : RecyclerView.Adapter<ProductTitleAdapter.ViewHolder>() {
@@ -38,7 +39,7 @@ class ProductTitleAdapter(val context: Context, val categories: List<String>) : 
             this.binding.let {
                 it.textTitle.text = category
                 it.recyclerView.layoutManager = GridLayoutManager(context, 2)
-                it.recyclerView.adapter = ProductDetailAdapter(context, DatabaseHelper.productDao(context).getAllByCategory(category))
+                it.recyclerView.adapter = ProductDetailAdapter(context, DatabaseHelper.productDao(context).getAllByCategory(category), Constant.CLS_NAME.CREATE_TRX_ACT, null)
 
                 Font.setInto((context as AppCompatActivity), Font.Rubik.MEDIUM, it.textTitle)
             }

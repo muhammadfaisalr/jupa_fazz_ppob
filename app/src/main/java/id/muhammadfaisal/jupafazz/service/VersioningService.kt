@@ -86,6 +86,7 @@ class VersioningService() : Service() {
                                                                     productA.type,
                                                                     productA.brand,
                                                                     productA.category,
+                                                                    productA.image,
                                                                     productA.price,
                                                                     productA.status,
                                                                     productA.sku,

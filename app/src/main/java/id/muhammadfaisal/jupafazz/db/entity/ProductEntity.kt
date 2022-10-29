@@ -13,6 +13,7 @@ data class ProductEntity(
     @ColumnInfo(name = "type") var type: String,
     @ColumnInfo(name = "brand") var brand: String,
     @ColumnInfo(name = "category") var category: String,
+    @ColumnInfo(name = "product_img") var productImage: String,
     @ColumnInfo(name = "price") var price: String,
     @ColumnInfo(name = "status") var status: String,
     @ColumnInfo(name = "sku") var sku: String,

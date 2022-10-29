@@ -3,6 +3,8 @@ package id.muhammadfaisal.jupafazz.utils
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import id.muhammadfaisal.jupafazz.R
+import id.muhammadfaisal.jupafazz.api.model.deposit.DepositMethodResponse
+import id.muhammadfaisal.jupafazz.bottomsheet.DepositAmountBottomSheetDialogFragment
 import id.muhammadfaisal.jupafazz.bottomsheet.DetailProductBottomSheetDialogFragment
 import id.muhammadfaisal.jupafazz.bottomsheet.ErrorBottomSheetDialogFragment
 import id.muhammadfaisal.jupafazz.bottomsheet.RequestPermissionBottomSheetDialog
@@ -42,6 +44,16 @@ class BottomSheets {
             bundle.putSerializable(Constant.Key.PRODUCT_ENT, productEntity)
 
             val bottomSheet = DetailProductBottomSheetDialogFragment()
+            bottomSheet.isCancelable = isCancelable
+            bottomSheet.arguments = bundle
+            bottomSheet.show(activity.supportFragmentManager, BottomSheets::class.java.simpleName)
+        }
+
+        fun detailDeposit(activity: AppCompatActivity, deposit: DepositMethodResponse, isCancelable: Boolean) {
+            val bundle = Bundle()
+            bundle.putSerializable(Constant.Key.DEPOSIT_OBJ, deposit)
+
+            val bottomSheet = DepositAmountBottomSheetDialogFragment()
             bottomSheet.isCancelable = isCancelable
             bottomSheet.arguments = bundle
             bottomSheet.show(activity.supportFragmentManager, BottomSheets::class.java.simpleName)

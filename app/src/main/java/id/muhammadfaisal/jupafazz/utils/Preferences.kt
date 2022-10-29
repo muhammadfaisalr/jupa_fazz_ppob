@@ -41,5 +41,15 @@ class Preferences {
             val sharedPreferences = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE)
             return sharedPreferences.edit().remove(key).apply()
         }
+
+        fun getWhatsApp(context: Context) : String {
+            val wa = this.get(context, Constant.Key.WHATSAPP)
+            return wa as String
+        }
+
+        fun getSession(context: Context) : String {
+            val ss = this.get(context, Constant.Key.SESSION)
+            return ss as String
+        }
     }
 }

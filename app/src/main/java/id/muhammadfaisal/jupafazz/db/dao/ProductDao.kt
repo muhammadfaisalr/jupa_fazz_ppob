@@ -15,11 +15,17 @@ interface ProductDao {
     @Query("SELECT * FROM ${Constant.TABLE.PRODUCT}")
     fun getAll() : List<ProductEntity>
 
-    @Query("SELECT * FROM ${Constant.TABLE.PRODUCT} WHERE category = :category")
+    @Query("SELECT * FROM ${Constant.TABLE.PRODUCT} WHERE category = :category GROUP BY brand")
     fun getAllByCategory(category: String) : List<ProductEntity>
 
-    @Query("SELECT * FROM ${Constant.TABLE.PRODUCT} WHERE type = :type")
+    @Query("SELECT * FROM ${Constant.TABLE.PRODUCT} WHERE type = :type ORDER BY id ASC")
     fun getAllByType(type: String) : List<ProductEntity>
+
+    @Query("SELECT * FROM ${Constant.TABLE.PRODUCT} WHERE brand = :brand ORDER BY id ASC")
+    fun getAllByBrand(brand: String) : List<ProductEntity>
+
+    @Query("SELECT * FROM ${Constant.TABLE.PRODUCT} WHERE brand = :brand AND category = :category ORDER BY id ASC")
+    fun getAllByBrandAndCategory(brand: String, category: String) : List<ProductEntity>
 
     @Query("SELECT * FROM ${Constant.TABLE.PRODUCT} WHERE id = :id")
     fun getById(id: String) : ProductEntity

@@ -18,6 +18,9 @@ data class ProductResponse(
     @SerializedName("category")
     var category: String,
 
+    @SerializedName("image")
+    var image: String,
+
     @SerializedName("price")
     var price: String,
 
