@@ -24,9 +24,9 @@
 
             <ImageView
                 android:scaleType="fitXY"
-                android:layout_width="wrap_content"
+                android:layout_width="216dp"
                 android:layout_height="64dp"
-                android:src="@drawable/ic_launcher_background"/>
+                android:src="@drawable/logo_rect_blue"/>
 
             <TextView
                 android:gravity="end"

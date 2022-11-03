@@ -51,5 +51,10 @@ class Preferences {
             val ss = this.get(context, Constant.Key.SESSION)
             return ss as String
         }
+
+        fun getName(context: Context) : String {
+            val ss = this.get(context, Constant.Key.NAME)
+            return ss as String
+        }
     }
 }

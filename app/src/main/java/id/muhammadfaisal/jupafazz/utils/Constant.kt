@@ -81,6 +81,7 @@ class Constant {
 
             //miscellaneous
             const val BANNER = "/request/utility/api/banner"
+            const val BANNER_ACTIVITY = "/request/utility/api/spanduk"
         }
     }
 

@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.room.util.StringUtil
 import com.denzcoskun.imageslider.models.SlideModel
 import com.denzcoskun.imageslider.constants.ScaleTypes
+import id.muhammadfaisal.jupafazz.activity.BannerActivity
 import id.muhammadfaisal.jupafazz.activity.MethodDepositActivity
+import id.muhammadfaisal.jupafazz.activity.ScannerActivity
 import id.muhammadfaisal.jupafazz.adapter.MenuAdapter
 import id.muhammadfaisal.jupafazz.api.model.BaseResponse
 import id.muhammadfaisal.jupafazz.databinding.FragmentHomeBinding
@@ -21,14 +23,20 @@ import id.muhammadfaisal.jupafazz.helper.DatabaseHelper
 import id.muhammadfaisal.jupafazz.helper.GeneralHelper
 import id.muhammadfaisal.jupafazz.helper.ViewHelper
 import id.muhammadfaisal.jupafazz.utils.*
+import id.muhammadfaisal.jupafazz.utils.Formatter
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
+import me.dm7.barcodescanner.zxing.ZXingScannerView
 import org.apache.commons.lang3.StringUtils
 import retrofit2.Response
+import java.util.*
+import kotlin.collections.ArrayList
 
 class HomeFragment : Fragment(), View.OnClickListener {
 
     private lateinit var binding: FragmentHomeBinding
+
+    private lateinit var zxingScannerView: ZXingScannerView
 
     private lateinit var imageSlides : ArrayList<SlideModel>
 
@@ -61,6 +69,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     private fun initialize() {
         this.imageSlides = ArrayList()
+        this.zxingScannerView = ZXingScannerView(requireContext())
 
         this.imageSlide()
 
@@ -86,10 +95,11 @@ class HomeFragment : Fragment(), View.OnClickListener {
                     it.textSend,
                     it.textScan,
                     it.textNews,
-                    it.textTitleBalance
+                    it.textTitleBalance,
+                    it.buttonSpanduk
                 )
 
-                ViewHelper.makeClickable(this@HomeFragment, it.layoutTopUp)
+                ViewHelper.makeClickable(this@HomeFragment, it.layoutTopUp, it.layoutSend, it.buttonSpanduk)
             }
         }
     }
@@ -147,6 +157,10 @@ class HomeFragment : Fragment(), View.OnClickListener {
     override fun onClick(p0: View?) {
         if (p0 == this.binding.layoutTopUp) {
             GeneralHelper.move(requireContext(), MethodDepositActivity::class.java, false)
+        } else if (p0 == this.binding.buttonSpanduk) {
+            GeneralHelper.move(requireContext(), BannerActivity::class.java, false)
+        } else if (p0 == this.binding.layoutSend) {
+            GeneralHelper.move(requireContext(), ScannerActivity::class.java, false)
         }
     }
 }

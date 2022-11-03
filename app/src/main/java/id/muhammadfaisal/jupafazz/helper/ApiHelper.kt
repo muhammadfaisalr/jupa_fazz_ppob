@@ -144,5 +144,12 @@ class ApiHelper {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
         }
+
+        fun getOutletBanners() : Observable<Response<BaseResponse>> {
+            return getServices()
+                .getOutletBanners()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+        }
     }
 }

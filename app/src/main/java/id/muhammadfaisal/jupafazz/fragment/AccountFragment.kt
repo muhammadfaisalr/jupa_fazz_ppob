@@ -39,6 +39,14 @@ class AccountFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         this.initialize()
+        this.data()
+    }
+
+    private fun data() {
+        val name = Preferences.getName(requireContext())
+        this.binding.apply {
+            this.textName.text = name
+        }
     }
 
     private fun initialize() {
@@ -78,7 +86,8 @@ class AccountFragment : Fragment(), View.OnClickListener {
                 binding.textFaq,
                 binding.textPrivacyPolicy,
                 binding.textSK,
-                binding.textLogout
+                binding.textLogout,
+                binding.cardQr
             )
         }
     }
@@ -112,6 +121,8 @@ class AccountFragment : Fragment(), View.OnClickListener {
             GeneralHelper.move(requireContext(), WebViewActivity::class.java, bundle,false)
         } else if (p0 == this.binding.textLogout) {
             this.processLogout()
+        } else if (p0 == this.binding.cardQr) {
+            BottomSheets.showQR(requireActivity() as AppCompatActivity, false)
         }
     }
 
@@ -132,6 +143,7 @@ class AccountFragment : Fragment(), View.OnClickListener {
                         if (body.isSuccess) {
                             Preferences.delete(requireContext(), Constant.Key.WHATSAPP)
                             Preferences.delete(requireContext(), Constant.Key.SESSION)
+                            Preferences.delete(requireContext(), Constant.Key.NAME)
 
                             GeneralHelper.move(requireContext(), LoginActivity::class.java, null, true)
                         } else {

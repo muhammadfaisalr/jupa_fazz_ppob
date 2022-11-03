@@ -95,4 +95,7 @@
     <string name="total_balance">Total Saldo</string>
     <string name="help_total_balance">Total saldo yang di dapat saat melakukan deposit diluar biaya admin (jika ada).</string>
     <string name="total_balance_received">Total saldo di dapat</string>
+    <string name="download_banner">Unduh Spanduk</string>
+    <string name="your_qr_code">Kode QR Anda</string>
+    <string name="your_qr_code_desc">Tunjukan kode QR Diatas kepada merchant untuk melakukan transaksi</string>
 </resources>

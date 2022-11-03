@@ -4,10 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import id.muhammadfaisal.jupafazz.R
 import id.muhammadfaisal.jupafazz.api.model.deposit.DepositMethodResponse
-import id.muhammadfaisal.jupafazz.bottomsheet.DepositAmountBottomSheetDialogFragment
-import id.muhammadfaisal.jupafazz.bottomsheet.DetailProductBottomSheetDialogFragment
-import id.muhammadfaisal.jupafazz.bottomsheet.ErrorBottomSheetDialogFragment
-import id.muhammadfaisal.jupafazz.bottomsheet.RequestPermissionBottomSheetDialog
+import id.muhammadfaisal.jupafazz.bottomsheet.*
 import id.muhammadfaisal.jupafazz.db.entity.ProductEntity
 
 class BottomSheets {
@@ -56,6 +53,12 @@ class BottomSheets {
             val bottomSheet = DepositAmountBottomSheetDialogFragment()
             bottomSheet.isCancelable = isCancelable
             bottomSheet.arguments = bundle
+            bottomSheet.show(activity.supportFragmentManager, BottomSheets::class.java.simpleName)
+        }
+
+        fun showQR(activity: AppCompatActivity, isCancelable: Boolean) {
+            val bottomSheet = QrBottomSheetDialogFragment()
+            bottomSheet.isCancelable = isCancelable
             bottomSheet.show(activity.supportFragmentManager, BottomSheets::class.java.simpleName)
         }
     }

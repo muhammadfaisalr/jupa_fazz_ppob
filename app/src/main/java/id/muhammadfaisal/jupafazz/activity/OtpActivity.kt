@@ -149,7 +149,8 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
                         if (t.body() != null) {
                             val body = t.body()!!
                             if (body.isSuccess) {
-                                GeneralHelper.move(this@OtpActivity, MainActivity::class.java, true)
+                                Toast.makeText(this@OtpActivity, "Berhasil Mendaftar!", Toast.LENGTH_SHORT).show()
+                                GeneralHelper.move(this@OtpActivity, LoginActivity::class.java, true)
                             } else {
                                 binding.otpView.showError()
                                 BottomSheets.error(

@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "id.muhammadfaisal.jupafazz"
-        minSdk 21
+        minSdk 24
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -23,6 +23,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+
+    configurations {
+        implementation.exclude group: 'com.google.zxing'
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -57,6 +63,9 @@ dependencies {
     implementation 'com.github.aabhasr1:OtpView:v1.1.2-ktx'
     implementation 'com.github.cachapa:ExpandableLayout:2.9.2'
     implementation 'com.github.bumptech.glide:glide:4.14.0'
+    implementation('com.journeyapps:zxing-android-embedded:4.3.0') { transitive = false }
+    implementation 'com.google.zxing:core:3.3.0'
+
 
     //API
     implementation 'com.google.code.gson:gson:2.8.6'

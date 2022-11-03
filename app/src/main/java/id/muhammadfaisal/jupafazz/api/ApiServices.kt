@@ -130,4 +130,7 @@ interface ApiServices {
 
     @GET(Constant.URL.BANNER)
     fun getBanners() : Observable<Response<BaseResponse>>
+
+    @GET(Constant.URL.BANNER_ACTIVITY)
+    fun getOutletBanners() : Observable<Response<BaseResponse>>
 }
