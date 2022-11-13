@@ -15,6 +15,7 @@
     <color name="yellow">#FFE149</color>
     <color name="grey">#F6F6F6</color>
     <color name="grey_stroke">#ECECEC</color>
+    <color name="dark_grey">#737373</color>
 
     <color name="error_bg">#F8BBD0</color>
     <color name="error_text">#BF0E01</color>

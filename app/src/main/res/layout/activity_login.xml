@@ -32,7 +32,6 @@
                 android:gravity="end"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="V 0.1.17"
                 android:id="@+id/textVersion"/>
 
         </LinearLayout>

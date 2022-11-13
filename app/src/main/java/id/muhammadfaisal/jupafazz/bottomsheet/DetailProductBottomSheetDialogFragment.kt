@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import id.muhammadfaisal.jupafazz.R
+import id.muhammadfaisal.jupafazz.activity.PinActivity
 import id.muhammadfaisal.jupafazz.activity.SuccessTransactionActivity
 import id.muhammadfaisal.jupafazz.adapter.ProductDetailAdapter
 import id.muhammadfaisal.jupafazz.api.model.BaseResponse
@@ -137,58 +138,18 @@ class DetailProductBottomSheetDialogFragment : BottomSheetDialogFragment(), View
             return
         }
 
-        val loading = Loading(requireContext())
-        loading.setCancelable(false)
-        loading.show()
-
         val target = GeneralHelper.getInputValue(this.binding.inputBill)
         val wa = Preferences.get(requireContext(), Constant.Key.WHATSAPP) as String
         val session = Preferences.get(requireContext(), Constant.Key.SESSION) as String
         val sku = this.productSelected!!.sku
 
-        var invoiceId = ""
-        var isSuccess = false
-        CompositeDisposable().add(
-            ApiHelper
-                .transaction(wa, session, sku, target)
-                .subscribeWith(object : DisposableObserver<Response<BaseResponse>>() {
-                    override fun onNext(t: Response<BaseResponse>) {
-                        val body = t.body()
 
-                        if (body != null) {
-                            if (body.isSuccess) {
-                                isSuccess = true
-                                val data = body.data as Map<*, *>
-                                invoiceId = data["order_id"].toString()
-                            } else {
-                                if (GeneralHelper.isSessionExpire(body.message)) {
-                                    GeneralHelper.sessionExpired(requireContext())
-                                    return
-                                }
+        val bundle = Bundle()
+        bundle.putString(Constant.Key.PROCESS_TO, Constant.ProcessTo.PURCHASE_PRODUCT)
+        bundle.putString(Constant.Key.TARGET, target)
+        bundle.putString(Constant.Key.SKU, sku)
 
-                                Toast.makeText(requireContext(), "Oops, Pembelian Gagal! ${body.message}", Toast.LENGTH_SHORT).show()
-                            }
-                        }
-                    }
-
-                    override fun onError(e: Throwable) {
-                        BottomSheets.error((requireActivity() as AppCompatActivity), e, false, true)
-                        loading.dismiss()
-                    }
-
-                    override fun onComplete() {
-                        loading.dismiss()
-                        if (isSuccess) {
-                            val bundle = Bundle()
-                            bundle.putString(Constant.Key.INVOICE_ID, invoiceId)
-                            requireActivity().apply {
-                                GeneralHelper.move(this, SuccessTransactionActivity::class.java, bundle, true)
-                            }
-                        }
-                    }
-
-                })
-        )
+        GeneralHelper.move(this.requireContext(), PinActivity::class.java, bundle, false)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)

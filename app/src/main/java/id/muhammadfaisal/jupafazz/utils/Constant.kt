@@ -6,6 +6,10 @@ import id.muhammadfaisal.jupafazz.bottomsheet.DetailProductBottomSheetDialogFrag
 class Constant {
     class Key {
         companion object {
+            const val SKU = "SKU"
+            const val PROCESS_TO = "PROCESS_TO"
+            const val TARGET = "TARGET"
+            const val SCAN_RESULT = "SCAN_RESULT"
             const val PRODUCT_ENT = "PRODUCT_ENT"
             const val PRODUCT_V = "PRODUCT_V"
             const val BUNDLING = "BUNDLING"
@@ -25,6 +29,12 @@ class Constant {
             const val AMOUNT = "AMOUNT"
             const val METHOD_ID = "METHOD_ID"
             const val URL = "URL"
+        }
+    }
+
+    class ProcessTo {
+        companion object {
+            const val PURCHASE_PRODUCT = "PURCHASE_PRODUCT"
         }
     }
 
@@ -64,6 +74,9 @@ class Constant {
             const val USER_DETAIL = "request/users/api/detail"
             const val USER_BALANCE = "request/users/api/balance"
             const val CHANGE_PASSWORD = "request/users/api/change"
+            const val CHANGE_PIN = "request/users/api/change-pin"
+            const val USER_NOTIFICATION = "request/users/api/notification"
+            const val TRANSFER_INQUIRY = "request/users/api/transfer-inquiry"
 
             //Product
             const val GET_PRODUCT = "request/product/api/all"

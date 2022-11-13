@@ -66,6 +66,13 @@ class ApiHelper {
                 .subscribeOn(Schedulers.io())
         }
 
+        fun notifications(wa: String, session: String) : Observable<Response<BaseResponse>> {
+            return getServices()
+                .notifications(wa, session)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+        }
+
         fun changePassword(wa: String, session: String, oldPassword: String, newPassword: String, confirmPassword: String) : Observable<Response<BaseResponse>> {
             return getServices()
                 .changePassword(wa, session, oldPassword, newPassword, confirmPassword)
@@ -73,9 +80,16 @@ class ApiHelper {
                 .subscribeOn(Schedulers.io())
         }
 
-        fun transaction(wa: String, session: String, product: String, target: String) : Observable<Response<BaseResponse>> {
+        fun changePin(wa: String, session: String, oldPin: String, newPin: String, confirmPin: String) : Observable<Response<BaseResponse>> {
             return getServices()
-                .transaction(wa, session, product, target)
+                .changePin(wa, session, oldPin, newPin, confirmPin)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+        }
+
+        fun transaction(wa: String, session: String, product: String, target: String, pin: String) : Observable<Response<BaseResponse>> {
+            return getServices()
+                .transaction(wa, session, product, pin, target)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
         }
@@ -127,6 +141,13 @@ class ApiHelper {
         fun userDetail(wa: String, session: String) : Observable<Response<BaseResponse>> {
             return getServices()
                 .userDetail(wa, session)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+        }
+
+        fun transferInquiry(wa: String, session: String, to: String) : Observable<Response<BaseResponse>> {
+            return getServices()
+                .transferInquiry(wa, session, to)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
         }

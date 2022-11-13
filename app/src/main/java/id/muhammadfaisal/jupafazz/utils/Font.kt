@@ -1,5 +1,6 @@
 package id.muhammadfaisal.jupafazz.utils
 
+import `in`.aabhasjindal.otptextview.OtpTextView
 import android.graphics.Typeface
 import android.widget.CheckBox
 import android.widget.RadioButton

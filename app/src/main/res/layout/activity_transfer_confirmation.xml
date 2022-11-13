@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.TransferConfirmationActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="8dp"
+        android:paddingTop="16dp">
+
+        <include
+            android:id="@+id/layoutHeader"
+            layout="@layout/item_non_rv_header" />
+    </RelativeLayout>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/linearProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:layout_marginVertical="8dp"
+        android:indeterminateOnly="true"
+        android:progress="45"
+        app:indicatorColor="@color/dark_blue"
+        app:layout_constraintBottom_toTopOf="@id/recyclerView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:trackColor="@color/light_blue" />
+
+    <TextView
+        android:id="@+id/textSendToTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:text="@string/send_balance_to"
+        android:textColor="@color/grey_font"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textSendTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:text="Muhammad Faisal (6281287616776)"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textAmountTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:text="@string/total_want_to_transfer"
+        android:textColor="@color/grey_font"
+        android:textSize="14sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textPrefixRp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="8dp"
+            android:text="@string/prefix_rp"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <id.muhammadfaisal.jupafazz.ui.RupiahEditText
+            android:id="@+id/inputAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_toEndOf="@id/textPrefixRp"
+            android:background="@android:color/transparent"
+            android:inputType="number"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonProcess"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:text="@string/send_money"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/dark_blue" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonBack"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:drawableLeft="@drawable/ic_round_arrow_back_24"
+        android:drawableTint="@color/dark_grey"
+        android:text="@string/back"
+        android:textColor="@color/dark_grey"
+        app:backgroundTint="@color/grey_stroke"
+        app:strokeColor="@color/dark_grey" />
+
+</LinearLayout>

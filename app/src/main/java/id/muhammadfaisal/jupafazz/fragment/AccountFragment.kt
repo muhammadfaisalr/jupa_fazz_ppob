@@ -67,6 +67,7 @@ class AccountFragment : Fragment(), View.OnClickListener {
                     binding.textTopUpBalance,
                     binding.textMutationBalance,
                     binding.textChangePassword,
+                    binding.textChangePin,
                     binding.textSK,
                     binding.textPriceList,
                     binding.textPrivacyPolicy,
@@ -80,6 +81,7 @@ class AccountFragment : Fragment(), View.OnClickListener {
                 this@AccountFragment,
                 binding.textMutationBalance,
                 binding.textChangePassword,
+                binding.textChangePin,
                 binding.textTopUpBalance,
                 binding.textPriceList,
                 binding.textHelp,
@@ -93,36 +95,50 @@ class AccountFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(p0: View?) {
-        if (p0 == this.binding.textMutationBalance) {
-            GeneralHelper.move(requireContext(), MutationActivity::class.java, false)
-        } else if (p0 == this.binding.textChangePassword) {
-            GeneralHelper.move(requireContext(), ChangePasswordActivity::class.java, false)
-        } else if (p0 == this.binding.textTopUpBalance) {
-            GeneralHelper.move(requireContext(), MethodDepositActivity::class.java, false)
-        } else if (p0 == this.binding.textPriceList) {
-            val bundle = Bundle()
-            bundle.putString(Constant.Key.URL, Constant.WEB.PRICE_LIST)
-            GeneralHelper.move(requireContext(), WebViewActivity::class.java, bundle,false)
-        } else if (p0 == this.binding.textHelp) {
-            val bundle = Bundle()
-            bundle.putString(Constant.Key.URL, Constant.WEB.HELP)
-            GeneralHelper.move(requireContext(), WebViewActivity::class.java, bundle,false)
-        } else if (p0 == this.binding.textFaq) {
-            val bundle = Bundle()
-            bundle.putString(Constant.Key.URL, Constant.WEB.FAQ)
-            GeneralHelper.move(requireContext(), WebViewActivity::class.java, bundle,false)
-        } else if (p0 == this.binding.textPrivacyPolicy) {
-            val bundle = Bundle()
-            bundle.putString(Constant.Key.URL, Constant.WEB.PRIVACY_POLICY)
-            GeneralHelper.move(requireContext(), WebViewActivity::class.java, bundle,false)
-        } else if (p0 == this.binding.textSK) {
-            val bundle = Bundle()
-            bundle.putString(Constant.Key.URL, Constant.WEB.TERMS)
-            GeneralHelper.move(requireContext(), WebViewActivity::class.java, bundle,false)
-        } else if (p0 == this.binding.textLogout) {
-            this.processLogout()
-        } else if (p0 == this.binding.cardQr) {
-            BottomSheets.showQR(requireActivity() as AppCompatActivity, false)
+        when (p0) {
+            this.binding.textMutationBalance -> {
+                GeneralHelper.move(requireContext(), MutationActivity::class.java, false)
+            }
+            this.binding.textChangePassword -> {
+                GeneralHelper.move(requireContext(), ChangePasswordActivity::class.java, false)
+            }
+            this.binding.textChangePin -> {
+                GeneralHelper.move(requireContext(), ChangePinActivity::class.java, false)
+            }
+            this.binding.textTopUpBalance -> {
+                GeneralHelper.move(requireContext(), MethodDepositActivity::class.java, false)
+            }
+            this.binding.textPriceList -> {
+                val bundle = Bundle()
+                bundle.putString(Constant.Key.URL, Constant.WEB.PRICE_LIST)
+                GeneralHelper.move(requireContext(), WebViewActivity::class.java, bundle,false)
+            }
+            this.binding.textHelp -> {
+                val bundle = Bundle()
+                bundle.putString(Constant.Key.URL, Constant.WEB.HELP)
+                GeneralHelper.move(requireContext(), WebViewActivity::class.java, bundle,false)
+            }
+            this.binding.textFaq -> {
+                val bundle = Bundle()
+                bundle.putString(Constant.Key.URL, Constant.WEB.FAQ)
+                GeneralHelper.move(requireContext(), WebViewActivity::class.java, bundle,false)
+            }
+            this.binding.textPrivacyPolicy -> {
+                val bundle = Bundle()
+                bundle.putString(Constant.Key.URL, Constant.WEB.PRIVACY_POLICY)
+                GeneralHelper.move(requireContext(), WebViewActivity::class.java, bundle,false)
+            }
+            this.binding.textSK -> {
+                val bundle = Bundle()
+                bundle.putString(Constant.Key.URL, Constant.WEB.TERMS)
+                GeneralHelper.move(requireContext(), WebViewActivity::class.java, bundle,false)
+            }
+            this.binding.textLogout -> {
+                this.processLogout()
+            }
+            this.binding.cardQr -> {
+                BottomSheets.showQR(requireActivity() as AppCompatActivity, true)
+            }
         }
     }
 

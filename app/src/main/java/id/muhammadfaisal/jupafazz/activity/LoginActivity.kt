@@ -47,6 +47,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         this.binding.let {
+            it.textVersion.text = "v" + GeneralHelper.getAppsVersion()
             Font.apply {
                 setInto(this@LoginActivity, Font.Rubik.SEMI_BOLD, it.textTitle)
                 setInto(this@LoginActivity, Font.Rubik.REGULAR, it.textSubtitle, it.textRegisterTitle)

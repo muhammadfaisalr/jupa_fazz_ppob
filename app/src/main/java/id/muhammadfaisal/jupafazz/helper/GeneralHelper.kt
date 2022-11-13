@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.util.StringUtil
 import com.google.android.material.textfield.TextInputEditText
+import id.muhammadfaisal.jupafazz.BuildConfig
 import id.muhammadfaisal.jupafazz.R
 import id.muhammadfaisal.jupafazz.activity.CreateTransactionActivity
 import id.muhammadfaisal.jupafazz.activity.LoginActivity
@@ -122,6 +123,10 @@ class GeneralHelper {
             Preferences.delete(context, Constant.Key.WHATSAPP)
 
             GeneralHelper.move(context, LoginActivity::class.java, true)
+        }
+
+        fun getAppsVersion(): String{
+            return BuildConfig.VERSION_NAME
         }
     }
 }

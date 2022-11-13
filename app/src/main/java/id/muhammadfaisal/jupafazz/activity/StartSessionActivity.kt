@@ -4,6 +4,8 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
 import com.google.gson.Gson
 import id.muhammadfaisal.jupafazz.R
@@ -55,7 +57,7 @@ class StartSessionActivity : AppCompatActivity() {
         Font.setInto(this, Font.Rubik.MEDIUM, this.binding.textPleaseWait)
         Font.setInto(this, Font.Rubik.REGULAR, this.binding.textDesc)
 
-        var isSuccess = false
+        var isSuccess = true
         CompositeDisposable().add(
             ApiHelper
                 .userDetail(wa, session)
@@ -101,16 +103,35 @@ class StartSessionActivity : AppCompatActivity() {
                     }
 
                     override fun onComplete() {
-                        this@StartSessionActivity.apply {
-                            startService(
-                                Intent(
-                                    this,
-                                    VersioningService::class.java
-                                )
-                            ).also {
-                                GeneralHelper.move(this, MainActivity::class.java, true)
+                        if (isSuccess) {
+                            this@StartSessionActivity.apply {
+                                startService(
+                                    Intent(
+                                        this,
+                                        VersioningService::class.java
+                                    )
+                                ).also {
+                                    GeneralHelper.move(this, MainActivity::class.java, true)
+                                }
                             }
+                        } else {
+                            Preferences.delete(this@StartSessionActivity, Constant.Key.SESSION)
+                            Toast.makeText(
+                                this@StartSessionActivity,
+                                "Mengembalikan anda ke halaman login...",
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+
+                            Handler(Looper.myLooper()!!).postDelayed({
+                                GeneralHelper.move(
+                                    this@StartSessionActivity,
+                                    LoginActivity::class.java,
+                                    true
+                                )
+                            }, 3000L)
                         }
+
                     }
                 })
         )

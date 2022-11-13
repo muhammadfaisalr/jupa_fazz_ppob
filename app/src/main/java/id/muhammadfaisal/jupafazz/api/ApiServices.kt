@@ -56,6 +56,7 @@ interface ApiServices {
         @Field("wa") wa: String,
         @Field("session") session: String,
         @Field("product") product: String,
+        @Field("pin") pin: String,
         @Field("target") target: String,
     ) : Observable<Response<BaseResponse>>
 
@@ -113,6 +114,13 @@ interface ApiServices {
     ) : Observable<Response<BaseResponse>>
 
     @FormUrlEncoded
+    @POST(Constant.URL.USER_NOTIFICATION)
+    fun notifications(
+        @Field("wa") wa: String,
+        @Field("session") session: String,
+    ) : Observable<Response<BaseResponse>>
+
+    @FormUrlEncoded
     @POST(Constant.URL.CHANGE_PASSWORD)
     fun changePassword(
         @Field("wa") wa: String,
@@ -120,6 +128,25 @@ interface ApiServices {
         @Field("password_old") oldPassword: String,
         @Field("password_new") newPassword: String,
         @Field("password_confirm") confirmNewPassword: String,
+    ) : Observable<Response<BaseResponse>>
+
+    @FormUrlEncoded
+    @POST(Constant.URL.CHANGE_PIN)
+    fun changePin(
+        @Field("wa") wa: String,
+        @Field("session") session: String,
+        @Field("pin_old") oldPassword: String,
+        @Field("pin_new") newPassword: String,
+        @Field("pin_confirm") confirmNewPassword: String,
+    ) : Observable<Response<BaseResponse>>
+
+
+    @FormUrlEncoded
+    @POST(Constant.URL.TRANSFER_INQUIRY)
+    fun transferInquiry(
+        @Field("wa") wa: String,
+        @Field("session") session: String,
+        @Field("to") to: String,
     ) : Observable<Response<BaseResponse>>
 
     @GET(Constant.URL.GET_PRODUCT)

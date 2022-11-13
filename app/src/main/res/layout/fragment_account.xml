@@ -83,6 +83,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/textAccountInformation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -106,6 +107,20 @@
                 android:paddingHorizontal="12dp"
                 android:paddingVertical="16dp"
                 android:text="@string/change_password"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:foreground="?attr/selectableItemBackground"
+                android:drawablePadding="8dp"
+                android:gravity="center|start"
+                app:drawableStartCompat="@drawable/ic_round_password_24"
+                android:id="@+id/textChangePin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="16dp"
+                android:text="@string/change_pin"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 

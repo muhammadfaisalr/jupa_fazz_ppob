@@ -22,6 +22,7 @@
     <string name="top_up">Isi Saldo</string>
     <string name="top_up_desc">Isi Saldo akun anda agar tetap bisa melakukan transaksi di JupaFazz!\nSilahkan pilih metode top up anda.</string>
     <string name="send_money">Kirim</string>
+    <string name="send_money_full">Kirim Saldo</string>
     <string name="scan">Pindai</string>
     <string name="choices_menu">Menu Pilihan</string>
     <string name="add_menu">Tambah Menu</string>
@@ -39,6 +40,7 @@
     <string name="account_information">Informasi Akun</string>
     <string name="account_setting">Pengaturan Akun</string>
     <string name="change_password">Ubah Password</string>
+    <string name="change_pin">Ubah Pin</string>
     <string name="other_menu">Menu Lainnya</string>
     <string name="loading">Mohon Tunggu</string>
     <string name="verification">Verifikasi</string>
@@ -89,6 +91,7 @@
     <string name="new_password">Kata Sandi Baru</string>
     <string name="confirm_new_password">Konfirmasi Kata Sandi Baru</string>
     <string name="change_password_desc">Demi keamanan akun anda, mohon untuk mengganti kata sandi anda secara berkala.</string>
+    <string name="change_pin_desc">Demi keamanan akun anda, mohon untuk mengganti pin anda secara berkala.</string>
     <string name="open_invoice">Buka Invoice</string>
     <string name="logout">Keluar</string>
     <string name="deposit_history">Riwayat Deposit</string>
@@ -98,4 +101,12 @@
     <string name="download_banner">Unduh Spanduk</string>
     <string name="your_qr_code">Kode QR Anda</string>
     <string name="your_qr_code_desc">Tunjukan kode QR Diatas kepada merchant untuk melakukan transaksi</string>
+    <string name="total_want_to_transfer">Jumlah yang ingin di transfer</string>
+    <string name="send_balance_to">Kirim dana ke</string>
+    <string name="desc_send_money">Kirim saldo bebas biaya admin untuk ke semua pengguna aplikasi JupaFazz!</string>
+    <string name="input_pin">Masukan Pin</string>
+    <string name="input_pin_desc">Masukkan pin kamu untuk melanjutkan transaksi</string>
+    <string name="old_pin">Pin Lama</string>
+    <string name="new_pin">Pin Baru</string>
+    <string name="confirm_new_pin">Konfirmasi Pin Baru</string>
 </resources>

@@ -33,6 +33,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun initialize() {
         this.binding.let {
+            it.textVersion.text = "v" + GeneralHelper.getAppsVersion()
             Font.apply {
                 setInto(
                     this@RegisterActivity,
@@ -41,7 +42,8 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                     it.inputPhoneNumber,
                     it.inputPassword,
                     it.inputConfirmPassword,
-                    it.textRegisterTitle
+                    it.textRegisterTitle,
+                    it.textVersion
                 )
 
                 setInto(
